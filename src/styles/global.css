@@ -27,6 +27,7 @@ body {
 ::-webkit-scrollbar-thumb { background: var(--red-dark); border-radius: 3px; }
 img { max-width: 100%; height: auto; }
 a { text-decoration: none; color: inherit; }
+a[href^="tel:"] { white-space: nowrap; } /* never break a phone number across lines */
 
 /* ---------- Buttons ---------- */
 .btn {
