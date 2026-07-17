@@ -75,6 +75,13 @@ import { business } from '../data/site.js';
             <label for="about">Tell Us About Yourself</label>
             <textarea id="about" name="about" rows="5"></textarea>
           </div>
+          <div class="form-field full">
+            <label for="photo">Upload a Recent Photo</label>
+            <input id="photo" name="photoFile" type="file" accept="image/*" />
+            <span id="photoNote" style="font-size:0.85rem;color:var(--grey);">
+              A clear, recent photo of yourself. Large photos are resized automatically.
+            </span>
+          </div>
           <!-- Honeypot: hidden from humans, bots fill it and get silently dropped -->
           <div class="form-field full" style="position:absolute;left:-9999px;" aria-hidden="true">
             <label for="company">Company</label>
@@ -82,10 +89,10 @@ import { business } from '../data/site.js';
           </div>
         </div>
         <p class="form-fineprint">
-          A recent photo helps your application. Email one to
-          <a href={`mailto:${business.email}`} style="color:var(--gold);"> {business.email}</a> after submitting.
           All applicants must be 21+ with valid government-issued ID. Submitting this form does not
-          guarantee a position; management will contact qualified candidates.
+          guarantee a position; management will contact qualified candidates. Having trouble with the
+          photo upload? Submit without it and email your photo to
+          <a href={`mailto:${business.email}`} style="color:var(--gold);"> {business.email}</a>.
         </p>
         <div style="margin-top:1.4rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap;">
           <button type="submit" class="btn btn-red" id="applyBtn">Submit Application</button>
@@ -99,8 +106,7 @@ import { business } from '../data/site.js';
         </h2>
         <p style="color:var(--grey);max-width:520px;margin:0 auto;">
           Thanks for applying to Just Enuff Cabaret. Management will contact qualified
-          candidates. Don't forget to email a recent photo to
-          <a href={`mailto:${business.email}`} style="color:var(--gold);"> {business.email}</a>.
+          candidates.
         </p>
       </div>
     </div>
@@ -111,6 +117,40 @@ import { business } from '../data/site.js';
     const btn = document.getElementById('applyBtn');
     const status = document.getElementById('applyStatus');
 
+    // Shrink big phone photos in the browser so they fit in an email attachment
+    async function preparePhoto(file) {
+      if (!file || file.size === 0) return null;
+      try {
+        const bitmap = await createImageBitmap(file);
+        const MAX = 1600;
+        const scale = Math.min(1, MAX / Math.max(bitmap.width, bitmap.height));
+        const canvas = document.createElement('canvas');
+        canvas.width = Math.round(bitmap.width * scale);
+        canvas.height = Math.round(bitmap.height * scale);
+        canvas.getContext('2d').drawImage(bitmap, 0, 0, canvas.width, canvas.height);
+        const blob = await new Promise((r) => canvas.toBlob(r, 'image/jpeg', 0.85));
+        const dataUrl = await new Promise((resolve, reject) => {
+          const fr = new FileReader();
+          fr.onload = () => resolve(fr.result);
+          fr.onerror = reject;
+          fr.readAsDataURL(blob);
+        });
+        return { name: 'applicant-photo.jpg', type: 'image/jpeg', data: dataUrl.split(',')[1] };
+      } catch {
+        // Browser couldn't read this image format; send as-is if it's small enough
+        if (file.size <= 2.5 * 1024 * 1024) {
+          const dataUrl = await new Promise((resolve, reject) => {
+            const fr = new FileReader();
+            fr.onload = () => resolve(fr.result);
+            fr.onerror = reject;
+            fr.readAsDataURL(file);
+          });
+          return { name: file.name, type: file.type || 'application/octet-stream', data: dataUrl.split(',')[1] };
+        }
+        throw new Error('photo-too-large');
+      }
+    }
+
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       if (!form.reportValidity()) return;
@@ -119,6 +159,20 @@ import { business } from '../data/site.js';
       status.textContent = 'Sending…';
 
       const data = Object.fromEntries(new FormData(form).entries());
+      delete data.photoFile;
+      try {
+        const photoInput = document.getElementById('photo');
+        const photo = await preparePhoto(photoInput.files[0]);
+        if (photo) {
+          data.photoName = photo.name;
+          data.photoType = photo.type;
+          data.photoData = photo.data;
+        }
+      } catch {
+        status.textContent = 'That photo could not be processed. Try a different photo, or submit without one and email it to us.';
+        btn.disabled = false;
+        return;
+      }
       try {
         const res = await fetch('/api/apply', {
           method: 'POST',

@@ -46,6 +46,21 @@ export async function onRequestPost({ request, env }) {
     return json({ ok: false, error: 'Please enter a valid email address.' }, 400);
   }
 
+  // Optional photo attachment (base64). Graph's request limit is ~4 MB total,
+  // so cap the encoded photo at ~4M chars (~3 MB of image data).
+  let attachments = [];
+  if (data.photoData) {
+    if (typeof data.photoData !== 'string' || data.photoData.length > 4_000_000) {
+      return json({ ok: false, error: 'Photo is too large. Please choose a smaller photo or submit without one.' }, 400);
+    }
+    attachments = [{
+      '@odata.type': '#microsoft.graph.fileAttachment',
+      name: String(data.photoName || 'applicant-photo.jpg').slice(0, 100),
+      contentType: String(data.photoType || 'image/jpeg').slice(0, 50),
+      contentBytes: data.photoData
+    }];
+  }
+
   // Get an app-only Microsoft Graph token
   const tokenRes = await fetch(
     `https://login.microsoftonline.com/${env.MS_TENANT_ID}/oauth2/v2.0/token`,
@@ -74,7 +89,8 @@ export async function onRequestPost({ request, env }) {
     ['Date of Birth', data.dob],
     ['City / State', data.cityState],
     ['Prior Experience', data.experience || '(not answered)'],
-    ['About', data.about || '(not answered)']
+    ['About', data.about || '(not answered)'],
+    ['Photo', attachments.length ? 'Attached to this email' : '(none uploaded)']
   ]
     .map(
       ([k, v]) =>
@@ -85,7 +101,7 @@ export async function onRequestPost({ request, env }) {
 
   const mail = {
     message: {
-      subject: `Job Application: ${data.position} — ${data.firstName} ${data.lastName}`,
+      subject: `Job Application: ${data.position} - ${data.firstName} ${data.lastName}`,
       body: {
         contentType: 'HTML',
         content:
@@ -95,7 +111,8 @@ export async function onRequestPost({ request, env }) {
           `<p style="margin-top:16px;color:#666;font-size:12px;">Reply directly to this email to reach the applicant.</p>`
       },
       toRecipients: RECIPIENTS.map((address) => ({ emailAddress: { address } })),
-      replyTo: [{ emailAddress: { address: data.email } }]
+      replyTo: [{ emailAddress: { address: data.email } }],
+      ...(attachments.length ? { attachments } : {})
     },
     saveToSentItems: true
   };

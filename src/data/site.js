@@ -1,5 +1,5 @@
 // ============================================================
-// SITE DATA — edit this file to update content across the site
+// SITE DATA - edit this file to update content across the site
 // ============================================================
 
 export const business = {
@@ -51,7 +51,7 @@ export const serviceAreas = [
   { city: 'DeKalb, IL', drive: '~45 min via IL-23 & I-39', desc: 'North on I-39 to US-20 W / Alpine Rd.' }
 ];
 
-// Dancers — add a photo (1080 × 1440 px, portrait) to /public/images/dancers/
+// Dancers - add a photo (1080 × 1440 px, portrait) to /public/images/dancers/
 // and set `image` to its path. Leave image: null to show a "coming soon" slot.
 export const dancers = [
   { name: 'April', image: '/images/dancers/april.jpg' },
@@ -66,7 +66,7 @@ export const dancers = [
   { name: 'Celeste', image: null }
 ];
 
-// Events — drop flyers (1080 × 1440 px, portrait) into /public/images/events/
+// Events - drop flyers (1080 × 1440 px, portrait) into /public/images/events/
 // and add them here.
 //   date: ISO format 'YYYY-MM-DD'. Events automatically disappear from the
 //         site the day after their date passes. No need to delete old ones,
@@ -81,7 +81,7 @@ export const events = [
   }
 ];
 
-// Gallery — drop photos into /public/images/gallery/ and list them here.
+// Gallery - drop photos into /public/images/gallery/ and list them here.
 export const galleryImages = [
   { src: '/images/gallery/gallery-1.jpg', alt: 'Inside Just Enuff Cabaret gentlemen\'s club in Rockford, IL' }
 ];

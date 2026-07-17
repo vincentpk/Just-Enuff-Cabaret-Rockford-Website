@@ -1,4 +1,4 @@
-# Just Enuff Cabaret — Website
+# Just Enuff Cabaret - Website
 
 Multi-page Astro site for Just Enuff Cabaret (Rockford, IL), hosted on Cloudflare Pages.
 
@@ -12,7 +12,7 @@ Every push to the main branch auto-deploys.
 
 ## Editing content (no code required)
 
-Almost all content lives in **`src/data/site.js`** — hours, phone, packages, menus,
+Almost all content lives in **`src/data/site.js`** - hours, phone, packages, menus,
 dancers, events, FAQs, gallery photos, and social links.
 
 ### Add a dancer photo
@@ -41,15 +41,15 @@ variables** (add for Production, mark as Secret):
 | `MS_CLIENT_ID` | Same Overview page → "Application (client) ID" |
 | `MS_CLIENT_SECRET` | App registration → Certificates & secrets → New client secret → copy the **Value** immediately |
 
-Notes: the client secret expires (default 6 months–2 years — set a calendar
+Notes: the client secret expires (default 6 months–2 years - set a calendar
 reminder to rotate it). The form only works on the deployed site, not in local
 `npm run dev`. To change recipients, edit `RECIPIENTS` in `functions/api/apply.js`.
 
 ## Going live on justenuffcabaret.com
 
 When you point the domain at this site, make **two** edits:
-1. `astro.config.mjs` — change `site` to `'https://justenuffcabaret.com'`
-2. `public/robots.txt` — change the Sitemap URL to `https://justenuffcabaret.com/sitemap-index.xml`
+1. `astro.config.mjs` - change `site` to `'https://justenuffcabaret.com'`
+2. `public/robots.txt` - change the Sitemap URL to `https://justenuffcabaret.com/sitemap-index.xml`
 
 Then in Cloudflare Pages → Custom domains, add `justenuffcabaret.com` (and `www`).
 
