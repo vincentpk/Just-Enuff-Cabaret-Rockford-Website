@@ -139,4 +139,22 @@ const featuredPackages = packages.slice(0, 3);
       </div>
     </div>
   </section>
+
+  <script>
+    // iOS blocks video autoplay in Low Power Mode. Retry politely: on load,
+    // on the first touch/click anywhere, and when returning to the tab.
+    const v = document.querySelector('.hero-video');
+    if (v) {
+      v.muted = true;
+      v.defaultMuted = true;
+      const tryPlay = () => { v.play().catch(() => {}); };
+      tryPlay();
+      ['touchstart', 'click'].forEach((ev) =>
+        document.addEventListener(ev, tryPlay, { once: true, passive: true })
+      );
+      document.addEventListener('visibilitychange', () => {
+        if (!document.hidden) tryPlay();
+      });
+    }
+  </script>
 </Base>
