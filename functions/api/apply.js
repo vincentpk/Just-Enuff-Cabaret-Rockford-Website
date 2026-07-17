@@ -46,12 +46,15 @@ export async function onRequestPost({ request, env }) {
     return json({ ok: false, error: 'Please enter a valid email address.' }, 400);
   }
 
-  // Optional photo attachment (base64). Graph's request limit is ~4 MB total,
+  // Required photo attachment (base64). Graph's request limit is ~4 MB total,
   // so cap the encoded photo at ~4M chars (~3 MB of image data).
   let attachments = [];
-  if (data.photoData) {
+  if (!data.photoData) {
+    return json({ ok: false, error: 'A recent photo is required. Please upload one and resubmit.' }, 400);
+  }
+  {
     if (typeof data.photoData !== 'string' || data.photoData.length > 4_000_000) {
-      return json({ ok: false, error: 'Photo is too large. Please choose a smaller photo or submit without one.' }, 400);
+      return json({ ok: false, error: 'Photo is too large. Please choose a smaller photo.' }, 400);
     }
     attachments = [{
       '@odata.type': '#microsoft.graph.fileAttachment',
