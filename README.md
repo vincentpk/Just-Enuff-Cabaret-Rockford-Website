@@ -27,9 +27,16 @@ dancers, events, FAQs, gallery photos, and social links.
 ### Add gallery photos
 Drop photos into `public/images/gallery/` and list them in `galleryImages` in `src/data/site.js`.
 
-### Hiring form
-The application form posts to Formspree. Create a free form at https://formspree.io,
-then replace `YOUR_FORM_ID` in `src/pages/hiring.astro`.
+### Hiring form (Microsoft Forms)
+1. At https://forms.office.com, create the application form
+2. Collect responses → set **"Anyone can respond"** (so applicants don't need a Microsoft login)
+3. Share → click the **</>** (embed) icon → copy the URL inside `src="..."`
+4. Paste it into `MS_FORM_EMBED_URL` in `src/pages/hiring.astro`
+
+Until then, the page shows an "email your application" fallback.
+Note: don't add a file-upload question — Microsoft Forms only allows uploads from
+people inside your organization, so public applicants would be blocked. The page
+already tells applicants to email their photo instead.
 
 ## Going live on justenuffcabaret.com
 

@@ -2,9 +2,15 @@
 import Base from '../layouts/Base.astro';
 import { business } from '../data/site.js';
 
-// TODO: create a free form endpoint at https://formspree.io (or similar),
-// then replace FORM_ENDPOINT below with your real endpoint URL.
-const FORM_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
+// ============================================================
+// MICROSOFT FORMS SETUP
+// 1. Go to https://forms.office.com and create the application form
+// 2. Collect responses → set "Anyone can respond"
+// 3. Click Share → the "</>" (embed) icon → copy the URL inside src="..."
+// 4. Paste it below, replacing the PASTE_EMBED_URL_HERE placeholder
+// ============================================================
+const MS_FORM_EMBED_URL = 'PASTE_EMBED_URL_HERE';
+const formReady = MS_FORM_EMBED_URL.startsWith('https://');
 ---
 
 <Base
@@ -24,67 +30,33 @@ const FORM_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
 
   <section>
     <div class="inner-sm">
-      <form class="card" action={FORM_ENDPOINT} method="POST">
-        <div class="form-grid">
-          <div class="form-field full">
-            <label for="position">Desired Position *</label>
-            <select id="position" name="position" required>
-              <option value="">Select a position</option>
-              <option>Entertainer / Dancer</option>
-              <option>Bartender</option>
-              <option>Cocktail Server</option>
-              <option>Door Staff / Security</option>
-              <option>DJ</option>
-              <option>Other</option>
-            </select>
-          </div>
-          <div class="form-field">
-            <label for="firstName">First Name *</label>
-            <input id="firstName" name="firstName" type="text" required />
-          </div>
-          <div class="form-field">
-            <label for="lastName">Last Name *</label>
-            <input id="lastName" name="lastName" type="text" required />
-          </div>
-          <div class="form-field">
-            <label for="phone">Phone *</label>
-            <input id="phone" name="phone" type="tel" required />
-          </div>
-          <div class="form-field">
-            <label for="email">Email *</label>
-            <input id="email" name="email" type="email" required />
-          </div>
-          <div class="form-field">
-            <label for="dob">Date of Birth *</label>
-            <input id="dob" name="dob" type="date" required />
-          </div>
-          <div class="form-field">
-            <label for="cityState">City / State *</label>
-            <input id="cityState" name="cityState" type="text" required />
-          </div>
-          <div class="form-field full">
-            <label for="experience">Do you have any prior experience?</label>
-            <select id="experience" name="experience">
-              <option value="">Select one</option>
-              <option>Yes — I have experience</option>
-              <option>No — this would be my first time</option>
-            </select>
-          </div>
-          <div class="form-field full">
-            <label for="about">Tell Us About Yourself</label>
-            <textarea id="about" name="about" rows="5"></textarea>
-          </div>
+      {formReady ? (
+        <div class="card" style="padding:0.6rem;">
+          <iframe
+            src={MS_FORM_EMBED_URL}
+            title="Just Enuff Cabaret job application form"
+            style="width:100%;height:1400px;border:none;background:transparent;"
+            allowfullscreen
+          ></iframe>
         </div>
-        <p class="form-fineprint">
-          A recent photo helps your application — email one to
-          <a href={`mailto:${business.email}`} style="color:var(--gold);"> {business.email}</a> after submitting.
-          All applicants must be 21+ with valid government-issued ID. Submitting this form does not
-          guarantee employment; management will contact qualified candidates.
-        </p>
-        <div style="margin-top:1.4rem;">
-          <button type="submit" class="btn btn-red">Submit Application</button>
+      ) : (
+        <div class="card" style="text-align:center;padding:3rem 2rem;">
+          <h2 style="font-family:'Playfair Display',serif;color:var(--gold-light);font-size:1.6rem;margin-bottom:0.8rem;">
+            Application Form Coming Soon
+          </h2>
+          <p style="color:var(--grey);max-width:520px;margin:0 auto 1.6rem;">
+            In the meantime, send us your name, phone number, desired position, and a recent
+            photo by email — we'd love to hear from you.
+          </p>
+          <a class="btn btn-red" href={`mailto:${business.email}?subject=Job%20Application`}>Email Your Application</a>
         </div>
-      </form>
+      )}
+      <p class="form-fineprint" style="text-align:center;">
+        A recent photo helps your application — email one to
+        <a href={`mailto:${business.email}`} style="color:var(--gold);"> {business.email}</a>.
+        All applicants must be 21+ with valid government-issued ID. Submitting an application does
+        not guarantee employment; management will contact qualified candidates.
+      </p>
     </div>
   </section>
 </Base>
