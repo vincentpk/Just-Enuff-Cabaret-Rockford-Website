@@ -30,12 +30,12 @@ export const business = {
 // Nearby cities we want to rank for (used in copy + directions)
 export const serviceAreas = [
   { city: 'Chicago, IL', drive: '~90 min via I-90 W', desc: 'Take I-90 West toward Rockford, exit at US-20 W / S Alpine Rd.' },
-  { city: 'Elgin, IL', drive: '~55 min via I-90 W', desc: 'Straight shot up I-90 West — an easy night out from the Fox Valley.' },
+  { city: 'Elgin, IL', drive: '~55 min via I-90 W', desc: 'Straight shot up I-90 West. An easy night out from the Fox Valley.' },
   { city: 'Aurora / Naperville, IL', drive: '~75 min via I-88 & I-39', desc: 'I-88 West to I-39 North into Rockford.' },
   { city: 'Lake Geneva, WI', drive: '~45 min via US-12 & IL-173', desc: 'US-12 South to IL-173 West, then south on I-90 / Alpine Rd.' },
   { city: 'Madison, WI', drive: '~70 min via I-39/90 S', desc: 'I-39/90 South straight into Rockford.' },
   { city: 'Milwaukee, WI', drive: '~85 min via I-43 & I-90', desc: 'I-43 South to I-90 West toward Rockford.' },
-  { city: 'Janesville / Beloit, WI', drive: '~30 min via I-39/90 S', desc: 'Quick trip down I-39/90 — closer than you think.' },
+  { city: 'Janesville / Beloit, WI', drive: '~30 min via I-39/90 S', desc: 'Quick trip down I-39/90. Closer than you think.' },
   { city: 'DeKalb, IL', drive: '~45 min via IL-23 & I-39', desc: 'North on I-39 to US-20 W / Alpine Rd.' }
 ];
 
@@ -73,7 +73,7 @@ export const packages = [
       'Reserved seating for 2',
       '1 bottle of house wine or 4 cocktails',
       'Appetizer platter for 2',
-      'Priority entry — no wait',
+      'Priority entry, no wait',
       'Welcome champagne toast'
     ],
     note: 'Perfect for date night or a solo evening out.'
@@ -91,7 +91,7 @@ export const packages = [
       'Meet & greet with a featured entertainer',
       'Personalized event memento'
     ],
-    note: 'Our most popular experience — book early!',
+    note: 'Our most popular experience. Book early!',
     featured: true
   },
   {
@@ -108,7 +108,7 @@ export const packages = [
       'Custom cake or celebration package',
       'Complimentary limo coordination'
     ],
-    note: 'The ultimate VIP experience — call to book.'
+    note: 'The ultimate VIP experience. Call to book.'
   },
   {
     tier: 'Group / Bachelor',
@@ -190,8 +190,8 @@ export const foodMenu = [
   {
     category: 'Sandwiches',
     items: [
-      { name: 'Cheeseburger', desc: 'Classic cheeseburger with pickles, lettuce, tomato — served with fries', price: '$16' },
-      { name: 'Chicken Sandwich', desc: 'Crispy chicken, chipotle aioli, lettuce, tomato — served with fries', price: '$17' },
+      { name: 'Cheeseburger', desc: 'Classic cheeseburger with pickles, lettuce, tomato, served with fries', price: '$16' },
+      { name: 'Chicken Sandwich', desc: 'Crispy chicken, chipotle aioli, lettuce, tomato, served with fries', price: '$17' },
       { name: 'Philly Cheesesteak', desc: 'Thinly sliced steak, grilled onions, provolone or Cheez Whiz on a toasted hoagie', price: '$18' }
     ]
   },
@@ -224,11 +224,11 @@ export const faqs = [
   },
   {
     q: 'Where is Just Enuff Cabaret located?',
-    a: 'We are at 1609 S Alpine Rd, Rockford, IL 61108 — just off US-20 and minutes from I-90/I-39, making us an easy drive from Chicago, Elgin, Aurora, Rockton, Beloit, Janesville, Lake Geneva, Madison, and Milwaukee.'
+    a: 'We are at 1609 S Alpine Rd, Rockford, IL 61108, just off US-20 and minutes from I-90/I-39, making us an easy drive from Chicago, Elgin, Aurora, Rockton, Beloit, Janesville, Lake Geneva, Madison, and Milwaukee.'
   },
   {
     q: 'Is there a cover charge?',
-    a: 'Cover varies by night and special event. Call us at (815) 399-4600 for tonight\'s details — VIP package guests receive priority entry.'
+    a: 'Cover varies by night and special event. Call us at (815) 399-4600 for tonight\'s details. VIP package guests receive priority entry.'
   },
   {
     q: 'Is there a dress code?',
@@ -236,7 +236,7 @@ export const faqs = [
   },
   {
     q: 'Is parking available?',
-    a: 'Yes — free on-site parking is available in our private lot on S Alpine Rd.'
+    a: 'Yes, free on-site parking is available in our private lot on S Alpine Rd.'
   },
   {
     q: 'Do you host bachelor parties and birthdays?',
@@ -244,18 +244,18 @@ export const faqs = [
   },
   {
     q: 'Do you serve food and drinks?',
-    a: 'Yes — we have a full bar with premium bottle service plus a full kitchen serving appetizers, pizza, sandwiches, tacos, and more until late.'
+    a: 'Yes, we have a full bar with premium bottle service plus a full kitchen serving appetizers, pizza, sandwiches, tacos, and more until late.'
   },
   {
     q: 'How do I reserve a VIP booth or bottle service?',
-    a: 'Call (815) 399-4600 or email info@justenuffcabaret.com. Weekend booths go fast — we recommend booking at least a few days ahead.'
+    a: 'Call (815) 399-4600 or email info@justenuffcabaret.com. Weekend booths go fast, so we recommend booking at least a few days ahead.'
   },
   {
     q: 'Is Just Enuff Cabaret worth the drive from Chicago or Wisconsin?',
-    a: 'We think so — guests regularly join us from Chicago (~90 min), Elgin (~55 min), Lake Geneva (~45 min), Madison (~70 min), and Milwaukee (~85 min). With free parking, VIP packages, and no big-city prices, it makes for a great night out.'
+    a: 'We think so. Guests regularly join us from Chicago (~90 min), Elgin (~55 min), Lake Geneva (~45 min), Madison (~70 min), and Milwaukee (~85 min). With free parking, VIP packages, and no big-city prices, it makes for a great night out.'
   },
   {
     q: 'Are you hiring dancers and staff?',
-    a: 'Yes — we are always looking for entertainers, bartenders, servers, security, and DJs. Apply on our Now Hiring page.'
+    a: 'Yes, we are always looking for entertainers, bartenders, servers, security, and DJs. Apply on our Now Hiring page.'
   }
 ];

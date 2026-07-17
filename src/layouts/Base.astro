@@ -126,7 +126,7 @@ const schemas = [businessSchema, ...(schema ? (Array.isArray(schema) ? schema : 
 
     <nav aria-label="Main navigation">
       <a href="/" aria-label={`${business.name} home`}>
-        <img class="nav-logo" src="/images/logo.png" alt={`${business.name} — Gentlemen's Club in Rockford, IL`} width="58" height="50" />
+        <img class="nav-logo" src="/images/logo.png" alt={`${business.name}, Gentlemen's Club in Rockford, IL`} width="58" height="50" />
       </a>
       <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -154,7 +154,7 @@ const schemas = [businessSchema, ...(schema ? (Array.isArray(schema) ? schema : 
         · <a href={business.phoneHref}>{business.phone}</a> · <a href={`mailto:${business.email}`}>{business.email}</a><br />
         {business.hours}<br />
         🔞 Adults 21+ Only · Must Present Valid ID at Door<br />
-        © {new Date().getFullYear()} {business.name}. All Rights Reserved. Rockford, IL — proudly serving
+        © {new Date().getFullYear()} {business.name}. All Rights Reserved. Rockford, IL. Proudly serving
         guests from Chicago, Elgin, Aurora, Beloit, Janesville, Lake Geneva, Madison &amp; Milwaukee.
       </div>
     </footer>
