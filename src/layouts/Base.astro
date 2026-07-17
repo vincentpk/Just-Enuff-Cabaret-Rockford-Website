@@ -178,7 +178,7 @@ const socialIcons = {
         · <a href={business.phoneHref}>{business.phone}</a> · <a href={`mailto:${business.email}`}>{business.email}</a><br />
         {business.hours}<br />
         🔞 Adults 21+ Only · Must Present Valid ID at Door<br />
-        © {new Date().getFullYear()} {business.name}. All Rights Reserved. Rockford, IL. Proudly serving
+        © <span id="copyYear">{new Date().getFullYear()}</span> {business.name}. All Rights Reserved. Rockford, IL. Proudly serving
         guests from Chicago, Elgin, Aurora, Beloit, Janesville, Lake Geneva, Madison &amp; Milwaukee.
       </div>
     </footer>
@@ -203,6 +203,10 @@ const socialIcons = {
         gate.setAttribute('aria-hidden', 'true');
         document.body.style.overflow = '';
       });
+
+      // Keep the copyright year current even without a redeploy
+      const yearEl = document.getElementById('copyYear');
+      if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
       // Mobile nav
       const burger = document.getElementById('hamburger');
