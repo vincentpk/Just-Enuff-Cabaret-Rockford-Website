@@ -54,6 +54,7 @@ export const serviceAreas = [
 // and set `image` to its path. Leave image: null to show a "coming soon" slot.
 export const dancers = [
   { name: 'April', image: '/images/dancers/april.jpg' },
+  { name: 'Lena', image: '/images/dancers/lena.jpg' },
   { name: 'Marie', image: '/images/dancers/marie.jpg' },
   { name: 'Scarlett', image: null },
   { name: 'Vivienne', image: null },
