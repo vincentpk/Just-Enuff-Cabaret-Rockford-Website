@@ -2,27 +2,21 @@
 import Base from '../layouts/Base.astro';
 import { business } from '../data/site.js';
 
-// ============================================================
-// MICROSOFT FORMS SETUP
-// 1. Go to https://forms.office.com and create the application form
-// 2. Collect responses → set "Anyone can respond"
-// 3. Click Share → the "</>" (embed) icon → copy the URL inside src="..."
-// 4. Paste it below, replacing the PASTE_EMBED_URL_HERE placeholder
-// ============================================================
-const MS_FORM_EMBED_URL = 'PASTE_EMBED_URL_HERE';
-const formReady = MS_FORM_EMBED_URL.startsWith('https://');
+// The form posts to /api/apply (a Cloudflare Pages Function in /functions/api/apply.js)
+// which emails applications via Microsoft Graph. Note: the form only works on the
+// deployed Cloudflare site, not in local `npm run dev`.
 ---
 
 <Base
   title="Now Hiring Dancers, Bartenders & Staff | Just Enuff Cabaret Rockford IL"
-  description="Join the team at Just Enuff Cabaret in Rockford, IL. Now hiring entertainers/dancers, bartenders, cocktail servers, security, and DJs. Apply online. 21+ with valid ID."
+  description="Join the team at Just Enuff Cabaret in Rockford, IL. Now hiring entertainers/dancers, bartenders, cocktail servers, hosts, security, and DJs. Apply online. 21+ with valid ID."
 >
   <div class="page-hero">
     <span class="eyebrow">Join Our Team</span>
     <h1 class="page-title">Now <em>Hiring</em></h1>
     <div class="rule"></div>
     <p class="lead">
-      We're always looking for entertainers, bartenders, cocktail servers, door staff,
+      We're always looking for entertainers, bartenders, cocktail servers, hosts, door staff,
       and DJs. Fill out the application below or email
       <a href={`mailto:${business.email}`} style="color:var(--gold);"> {business.email}</a>.
     </p>
@@ -30,33 +24,119 @@ const formReady = MS_FORM_EMBED_URL.startsWith('https://');
 
   <section>
     <div class="inner-sm">
-      {formReady ? (
-        <div class="card" style="padding:0.6rem;">
-          <iframe
-            src={MS_FORM_EMBED_URL}
-            title="Just Enuff Cabaret job application form"
-            style="width:100%;height:1400px;border:none;background:transparent;"
-            allowfullscreen
-          ></iframe>
+      <form class="card" id="applyForm" novalidate>
+        <div class="form-grid">
+          <div class="form-field full">
+            <label for="position">Desired Position *</label>
+            <select id="position" name="position" required>
+              <option value="">Select a position</option>
+              <option>Entertainer / Dancer</option>
+              <option>Bartender</option>
+              <option>Cocktail Server</option>
+              <option>Host</option>
+              <option>Door Staff / Security</option>
+              <option>DJ</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="firstName">First Name *</label>
+            <input id="firstName" name="firstName" type="text" autocomplete="given-name" required />
+          </div>
+          <div class="form-field">
+            <label for="lastName">Last Name *</label>
+            <input id="lastName" name="lastName" type="text" autocomplete="family-name" required />
+          </div>
+          <div class="form-field">
+            <label for="phone">Phone *</label>
+            <input id="phone" name="phone" type="tel" autocomplete="tel" required />
+          </div>
+          <div class="form-field">
+            <label for="email">Email *</label>
+            <input id="email" name="email" type="email" autocomplete="email" required />
+          </div>
+          <div class="form-field">
+            <label for="dob">Date of Birth *</label>
+            <input id="dob" name="dob" type="date" required />
+          </div>
+          <div class="form-field">
+            <label for="cityState">City / State *</label>
+            <input id="cityState" name="cityState" type="text" required />
+          </div>
+          <div class="form-field full">
+            <label for="experience">Do you have any prior experience?</label>
+            <select id="experience" name="experience">
+              <option value="">Select one</option>
+              <option>Yes, I have experience</option>
+              <option>No, this would be my first time</option>
+            </select>
+          </div>
+          <div class="form-field full">
+            <label for="about">Tell Us About Yourself</label>
+            <textarea id="about" name="about" rows="5"></textarea>
+          </div>
+          <!-- Honeypot: hidden from humans, bots fill it and get silently dropped -->
+          <div class="form-field full" style="position:absolute;left:-9999px;" aria-hidden="true">
+            <label for="company">Company</label>
+            <input id="company" name="company" type="text" tabindex="-1" autocomplete="off" />
+          </div>
         </div>
-      ) : (
-        <div class="card" style="text-align:center;padding:3rem 2rem;">
-          <h2 style="font-family:'Playfair Display',serif;color:var(--gold-light);font-size:1.6rem;margin-bottom:0.8rem;">
-            Application Form Coming Soon
-          </h2>
-          <p style="color:var(--grey);max-width:520px;margin:0 auto 1.6rem;">
-            In the meantime, send us your name, phone number, desired position, and a recent
-            photo by email. We'd love to hear from you.
-          </p>
-          <a class="btn btn-red" href={`mailto:${business.email}?subject=Job%20Application`}>Email Your Application</a>
+        <p class="form-fineprint">
+          A recent photo helps your application. Email one to
+          <a href={`mailto:${business.email}`} style="color:var(--gold);"> {business.email}</a> after submitting.
+          All applicants must be 21+ with valid government-issued ID. Submitting this form does not
+          guarantee employment; management will contact qualified candidates.
+        </p>
+        <div style="margin-top:1.4rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap;">
+          <button type="submit" class="btn btn-red" id="applyBtn">Submit Application</button>
+          <span id="applyStatus" role="status" style="color:var(--grey);font-style:italic;"></span>
         </div>
-      )}
-      <p class="form-fineprint" style="text-align:center;">
-        A recent photo helps your application. Email one to
-        <a href={`mailto:${business.email}`} style="color:var(--gold);"> {business.email}</a>.
-        All applicants must be 21+ with valid government-issued ID. Submitting an application does
-        not guarantee employment; management will contact qualified candidates.
-      </p>
+      </form>
+
+      <div class="card" id="applyThanks" style="display:none;text-align:center;padding:3rem 2rem;">
+        <h2 style="font-family:'Playfair Display',serif;color:var(--gold-light);font-size:1.6rem;margin-bottom:0.8rem;">
+          Application Received!
+        </h2>
+        <p style="color:var(--grey);max-width:520px;margin:0 auto;">
+          Thanks for applying to Just Enuff Cabaret. Management will contact qualified
+          candidates. Don't forget to email a recent photo to
+          <a href={`mailto:${business.email}`} style="color:var(--gold);"> {business.email}</a>.
+        </p>
+      </div>
     </div>
   </section>
+
+  <script>
+    const form = document.getElementById('applyForm');
+    const btn = document.getElementById('applyBtn');
+    const status = document.getElementById('applyStatus');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (!form.reportValidity()) return;
+
+      btn.disabled = true;
+      status.textContent = 'Sending…';
+
+      const data = Object.fromEntries(new FormData(form).entries());
+      try {
+        const res = await fetch('/api/apply', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+        const result = await res.json();
+        if (res.ok && result.ok) {
+          form.style.display = 'none';
+          document.getElementById('applyThanks').style.display = '';
+        } else {
+          status.textContent = result.error || 'Something went wrong. Please email us instead.';
+          btn.disabled = false;
+        }
+      } catch {
+        status.textContent = 'Connection problem. Please try again or email us.';
+        btn.disabled = false;
+      }
+    });
+  </script>
 </Base>

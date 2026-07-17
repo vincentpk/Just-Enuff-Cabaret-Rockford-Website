@@ -27,16 +27,23 @@ dancers, events, FAQs, gallery photos, and social links.
 ### Add gallery photos
 Drop photos into `public/images/gallery/` and list them in `galleryImages` in `src/data/site.js`.
 
-### Hiring form (Microsoft Forms)
-1. At https://forms.office.com, create the application form
-2. Collect responses → set **"Anyone can respond"** (so applicants don't need a Microsoft login)
-3. Share → click the **</>** (embed) icon → copy the URL inside `src="..."`
-4. Paste it into `MS_FORM_EMBED_URL` in `src/pages/hiring.astro`
+### Hiring form (Microsoft Graph via Cloudflare Pages Function)
+The custom form on /hiring posts to `/api/apply` (`functions/api/apply.js`), which
+sends each application by email from info@justenuffcabaret.com to the recipients
+listed at the top of that file, using the "JustEnuffContactWorker" Entra app.
 
-Until then, the page shows an "email your application" fallback.
-Note: don't add a file-upload question — Microsoft Forms only allows uploads from
-people inside your organization, so public applicants would be blocked. The page
-already tells applicants to email their photo instead.
+One-time setup in Cloudflare Pages → your project → **Settings → Environment
+variables** (add for Production, mark as Secret):
+
+| Variable | Where to find it |
+|---|---|
+| `MS_TENANT_ID` | Entra admin center → App registrations → JustEnuffContactWorker → Overview → "Directory (tenant) ID" |
+| `MS_CLIENT_ID` | Same Overview page → "Application (client) ID" |
+| `MS_CLIENT_SECRET` | App registration → Certificates & secrets → New client secret → copy the **Value** immediately |
+
+Notes: the client secret expires (default 6 months–2 years — set a calendar
+reminder to rotate it). The form only works on the deployed site, not in local
+`npm run dev`. To change recipients, edit `RECIPIENTS` in `functions/api/apply.js`.
 
 ## Going live on justenuffcabaret.com
 
