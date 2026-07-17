@@ -85,18 +85,15 @@ export const galleryImages = [
 
 export const packages = [
   {
-    tier: 'Tier 1',
-    name: 'The Martini',
-    price: '$150',
-    unit: 'per person',
+    tier: 'Celebrate',
+    name: 'The Birthday Package',
+    price: 'Call for Pricing',
+    unit: '(815) 399-4600',
     perks: [
-      'Reserved seating for 2',
-      '1 bottle of house wine or 4 cocktails',
-      'Appetizer platter for 2',
-      'Priority entry, no wait',
-      'Welcome champagne toast'
+      'Custom birthday cake with the guest of honor\'s name on it',
+      'Waived cover charge for up to 5 guests'
     ],
-    note: 'Perfect for date night or a solo evening out.'
+    note: 'Reserve at least one week in advance by calling (815) 399-4600. Because your custom cake is ordered ahead of time, payment is due in full when you book. Call us for current pricing and availability.'
   },
   {
     tier: 'Tier 2 · Signature',
