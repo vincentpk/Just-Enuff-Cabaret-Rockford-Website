@@ -65,7 +65,7 @@ export const events = [
     title: 'Amateur Dance Contest',
     date: '2026-08-12',
     desc: 'Think you have what it takes? Compete for cash prizes: $250 for 1st place, $150 for 2nd, and $100 for 3rd. DM us on Instagram or Facebook @justenuffrockford to enter. 21+, full bar, please drink responsibly.',
-    image: '/images/events/amateur-dance-contest.jpg'
+    image: null // set to '/images/events/amateur-dance-contest.jpg' once the flyer file is added
   }
 ];
 
