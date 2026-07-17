@@ -21,6 +21,9 @@ export const business = {
   geo: { lat: 42.251742, lng: -89.029279 },
   // Google Business Profile link (shows reviews, photos, hours)
   mapsUrl: 'https://maps.app.goo.gl/5UzjVGqgUzbCU1H76',
+  // Launches turn-by-turn navigation directly
+  directionsUrl:
+    'https://www.google.com/maps/dir/?api=1&destination=Just+Enuff+Cabaret%2C+1609+S+Alpine+Rd%2C+Rockford%2C+IL+61108',
   mapsEmbed:
     'https://www.google.com/maps?q=Just+Enuff+Cabaret+1609+S+Alpine+Rd+Rockford+IL+61108&output=embed',
   // Add real profile URLs when ready, e.g. 'https://www.instagram.com/justenuffcabaret'
@@ -52,11 +55,18 @@ export const dancers = [
 ];
 
 // Events — drop flyers (1080 × 1440 px, portrait) into /public/images/events/
-// and add them here. Leave image: null for a placeholder slot.
+// and add them here.
+//   date: ISO format 'YYYY-MM-DD'. Events automatically disappear from the
+//         site the day after their date passes. No need to delete old ones,
+//         but feel free to clean up this list occasionally.
+//   desc: shown under the flyer and used for SEO event listings.
 export const events = [
-  { title: 'Upcoming Event', date: '', image: null },
-  { title: 'Upcoming Event', date: '', image: null },
-  { title: 'Upcoming Event', date: '', image: null }
+  {
+    title: 'Amateur Dance Contest',
+    date: '2026-08-12',
+    desc: 'Think you have what it takes? Compete for cash prizes: $250 for 1st place, $150 for 2nd, and $100 for 3rd. DM us on Instagram or Facebook @justenuffrockford to enter. 21+, full bar, please drink responsibly.',
+    image: '/images/events/amateur-dance-contest.jpg'
+  }
 ];
 
 // Gallery — drop photos into /public/images/gallery/ and list them here.
