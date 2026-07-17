@@ -18,11 +18,11 @@ export const business = {
   email: 'info@justenuffcabaret.com',
   hours: 'Open 7 Nights a Week · 4 PM – 2 AM',
   hoursShort: 'Mon–Sun 4 PM – 2 AM',
-  geo: { lat: 42.24934, lng: -88.9942 }, // approx — verify pin on Google Maps
-  mapsUrl:
-    'https://www.google.com/maps/search/?api=1&query=Just+Enuff+Cabaret+1609+S+Alpine+Rd+Rockford+IL+61108',
+  geo: { lat: 42.251742, lng: -89.029279 },
+  // Google Business Profile link (shows reviews, photos, hours)
+  mapsUrl: 'https://maps.app.goo.gl/5UzjVGqgUzbCU1H76',
   mapsEmbed:
-    'https://www.google.com/maps?q=1609+S+Alpine+Rd,+Rockford,+IL+61108&output=embed',
+    'https://www.google.com/maps?q=Just+Enuff+Cabaret+1609+S+Alpine+Rd+Rockford+IL+61108&output=embed',
   // Add real profile URLs when ready, e.g. 'https://www.instagram.com/justenuffcabaret'
   socials: []
 };
