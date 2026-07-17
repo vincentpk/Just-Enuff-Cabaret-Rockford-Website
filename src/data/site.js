@@ -26,8 +26,16 @@ export const business = {
     'https://www.google.com/maps/dir/?api=1&destination=Just+Enuff+Cabaret%2C+1609+S+Alpine+Rd%2C+Rockford%2C+IL+61108',
   mapsEmbed:
     'https://www.google.com/maps?q=Just+Enuff+Cabaret+1609+S+Alpine+Rd+Rockford+IL+61108&output=embed',
-  // Add real profile URLs when ready, e.g. 'https://www.instagram.com/justenuffcabaret'
-  socials: []
+  // Used in footer links and SEO structured data (sameAs)
+  socialLinks: [
+    { label: 'Instagram', url: 'https://www.instagram.com/justenuffrockford/' },
+    { label: 'Facebook', url: 'https://www.facebook.com/share/1CXcczV9Qs/' },
+    { label: 'TikTok', url: 'https://www.tiktok.com/@justenuff1609' },
+    { label: 'X', url: 'https://x.com/justenuff1609' }
+  ],
+  get socials() {
+    return this.socialLinks.map((s) => s.url);
+  }
 };
 
 // Nearby cities we want to rank for (used in copy + directions)

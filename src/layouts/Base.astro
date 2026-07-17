@@ -149,6 +149,11 @@ const schemas = [businessSchema, ...(schema ? (Array.isArray(schema) ? schema : 
       <div class="footer-links">
         {navLinks.map((l) => <a href={l.href}>{l.label}</a>)}
       </div>
+      <div class="footer-links" style="margin-top:-0.6rem;">
+        {business.socialLinks.map((s) => (
+          <a href={s.url} target="_blank" rel="noopener" style="color:var(--gold);">{s.label}</a>
+        ))}
+      </div>
       <div class="footer-legal">
         <a href={business.mapsUrl} target="_blank" rel="noopener">{business.address.street}, {business.address.city}, {business.address.state} {business.address.zip}</a>
         · <a href={business.phoneHref}>{business.phone}</a> · <a href={`mailto:${business.email}`}>{business.email}</a><br />
