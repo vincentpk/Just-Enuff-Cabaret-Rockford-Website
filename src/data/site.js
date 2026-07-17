@@ -275,7 +275,7 @@ export const faqs = [
     a: 'We think so. Guests regularly join us from Chicago (~90 min), Elgin (~55 min), Lake Geneva (~45 min), Madison (~70 min), and Milwaukee (~85 min). With free parking, VIP packages, and no big-city prices, it makes for a great night out.'
   },
   {
-    q: 'Are you hiring dancers and staff?',
-    a: 'Yes, we are always looking for entertainers, bartenders, servers, security, and DJs. Apply on our Now Hiring page.'
+    q: 'How do I become an entertainer or join the staff?',
+    a: 'Entertainers audition year-round, and we regularly have positions for bartenders, servers, hosts, security, and DJs. Fill out the application on our Apply page.'
   }
 ];
