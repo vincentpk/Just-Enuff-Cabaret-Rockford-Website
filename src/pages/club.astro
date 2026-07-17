@@ -1,0 +1,86 @@
+---
+import Base from '../layouts/Base.astro';
+import { business } from '../data/site.js';
+
+const features = [
+  {
+    title: 'Main Stage & Showroom',
+    desc: 'A full stage with premium lighting and sound, surrounded by stage-side seating so you never miss a moment of the show.'
+  },
+  {
+    title: 'VIP Booths & Private Areas',
+    desc: 'Reserved booths and private seating for bottle service, celebrations, and a more exclusive night out.'
+  },
+  {
+    title: 'Full Bar & Bottle Service',
+    desc: 'Premium spirits, champagne, and cocktails — from house favorites to Dom Pérignon and Clase Azul.'
+  },
+  {
+    title: 'Late-Night Kitchen',
+    desc: 'A full food menu served late — wings, pizza, Philly cheesesteaks, street tacos, and more.'
+  },
+  {
+    title: 'World-Class Entertainers',
+    desc: 'A rotating roster of beautiful, professional entertainers performing seven nights a week.'
+  },
+  {
+    title: 'Free On-Site Parking',
+    desc: 'A private, free parking lot right on S Alpine Rd — no meters, no garages, no hassle.'
+  }
+];
+---
+
+<Base
+  title="The Club | Just Enuff Cabaret — Adult Nightlife Venue in Rockford, IL"
+  description="Inside Just Enuff Cabaret: main stage, VIP booths, premium bottle service, late-night kitchen & free parking. Rockford IL's upscale gentlemen's club at 1609 S Alpine Rd, open 7 nights 4 PM–2 AM."
+>
+  <div class="page-hero">
+    <span class="eyebrow">The Venue</span>
+    <h1 class="page-title">Inside <em>Just Enuff Cabaret</em></h1>
+    <div class="rule"></div>
+    <p class="lead">
+      An upscale gentlemen's club experience in the heart of Rockford, Illinois —
+      without big-city prices or big-city traffic.
+    </p>
+  </div>
+
+  <section>
+    <div class="inner">
+      <div class="grid-3">
+        {features.map((f) => (
+          <div class="card">
+            <h3 style="font-family:'Playfair Display',serif;color:var(--gold-light);font-size:1.35rem;margin-bottom:0.6rem;">{f.title}</h3>
+            <p style="color:var(--grey);">{f.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="inner-sm">
+      <h2>House Rules</h2>
+      <p style="max-width:640px;margin:0 auto 1.6rem;">
+        21+ with valid government-issued photo ID · Smart casual dress code ·
+        Respect the entertainers and staff · Management reserves the right of admission.
+      </p>
+      <a class="btn btn-red" href={business.phoneHref}>Questions? Call {business.phone}</a>
+    </div>
+  </section>
+
+  <section>
+    <div class="inner-sm" style="text-align:center;">
+      <span class="eyebrow">Plan Your Night</span>
+      <h2 class="section-title">Hours &amp; <em>Location</em></h2>
+      <div class="rule"></div>
+      <p class="lead">
+        {business.hours}. Find us at {business.address.street}, {business.address.city},
+        {business.address.state} {business.address.zip} — minutes from I-90/I-39 and US-20.
+      </p>
+      <div class="hero-btns" style="margin-top:2rem;">
+        <a class="btn btn-gold" href="/contact">Directions &amp; Parking</a>
+        <a class="btn btn-red" href="/vip">Reserve VIP</a>
+      </div>
+    </div>
+  </section>
+</Base>

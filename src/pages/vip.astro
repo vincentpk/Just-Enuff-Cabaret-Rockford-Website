@@ -1,0 +1,66 @@
+---
+import Base from '../layouts/Base.astro';
+import { business, packages } from '../data/site.js';
+---
+
+<Base
+  title="VIP Packages, Bottle Service & Reservations | Just Enuff Cabaret Rockford"
+  description="VIP packages at Just Enuff Cabaret, Rockford IL: booths, premium bottle service, bachelor & birthday party packages from $150. Reserve by phone at (815) 399-4600 — weekend booths go fast."
+>
+  <div class="page-hero">
+    <span class="eyebrow">VIP Experience</span>
+    <h1 class="page-title">VIP Packages &amp; <em>Reservations</em></h1>
+    <div class="rule"></div>
+    <p class="lead">
+      From date nights to bachelor parties — reserved seating, premium bottles, dedicated
+      service, and unforgettable extras. All prices include sales tax.
+    </p>
+  </div>
+
+  <section>
+    <div class="inner">
+      <div class="grid-2">
+        {packages.map((p) => (
+          <div class={`card pkg ${p.featured ? 'featured' : ''}`}>
+            {p.featured && <div class="badge">Most Popular</div>}
+            <div>
+              <div class="pkg-tier">{p.tier}</div>
+              <div class="pkg-name">{p.name}</div>
+            </div>
+            <div class="pkg-price">{p.price} <small>{p.unit}</small></div>
+            <ul>{p.perks.map((perk) => <li>{perk}</li>)}</ul>
+            <div class="pkg-note">{p.note}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="inner-sm">
+      <h2>How to Reserve</h2>
+      <p style="max-width:620px;margin:0 auto 1.6rem;">
+        Call <a href={business.phoneHref} style="color:var(--gold);">{business.phone}</a> or email
+        <a href={`mailto:${business.email}`} style="color:var(--gold);"> {business.email}</a> with your
+        preferred date, party size, and package. Weekend booths fill up fast — book a few days ahead.
+      </p>
+      <a class="btn btn-red" href={business.phoneHref}>Call to Reserve</a>
+      <a class="btn btn-gold" href={`mailto:${business.email}?subject=VIP%20Reservation%20Request`} style="margin-left:0.8rem;">Email Us</a>
+    </div>
+  </section>
+
+  <section>
+    <div class="inner-sm" style="text-align:center;">
+      <span class="eyebrow">Add-Ons</span>
+      <h2 class="section-title">Make It a <em>Full Night</em></h2>
+      <div class="rule"></div>
+      <p class="lead">
+        Pair your package with premium bottle service from our menu — champagne, rosé,
+        top-shelf tequila, and more.
+      </p>
+      <div class="hero-btns" style="margin-top:2rem;">
+        <a class="btn btn-gold" href="/menu">View Bottle &amp; Food Menu</a>
+      </div>
+    </div>
+  </section>
+</Base>

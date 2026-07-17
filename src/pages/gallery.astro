@@ -1,0 +1,48 @@
+---
+import Base from '../layouts/Base.astro';
+import { business, galleryImages } from '../data/site.js';
+
+// Pad with placeholder slots so the grid always looks full
+const minSlots = 8;
+const placeholders = Math.max(0, minSlots - galleryImages.length);
+---
+
+<Base
+  title="Photo Gallery | Just Enuff Cabaret — Inside Rockford's Premier Club"
+  description="Take a look inside Just Enuff Cabaret — Rockford IL's premier gentlemen's club. Photos of the stage, VIP booths, and the atmosphere that makes us worth the drive from Chicago & Wisconsin."
+>
+  <div class="page-hero">
+    <span class="eyebrow">Inside the Club</span>
+    <h1 class="page-title">Our <em>Gallery</em></h1>
+    <div class="rule"></div>
+    <p class="lead">A look inside the club — the stage, the booths, the atmosphere.</p>
+  </div>
+
+  <section>
+    <div class="inner">
+      <div class="grid-4">
+        {galleryImages.map((img) => (
+          <div class="photo-slot" style="aspect-ratio:3/4;">
+            <img src={img.src} alt={img.alt} loading="lazy" />
+          </div>
+        ))}
+        {Array.from({ length: placeholders }).map(() => (
+          <div class="photo-slot" style="aspect-ratio:3/4;">
+            <div class="slot-placeholder">
+              <img class="emblem" src="/images/emblem.png" alt="" width="200" height="200" loading="lazy" />
+              <span>More Coming Soon</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="inner-sm">
+      <h2>See It in Person</h2>
+      <p>{business.hours} · {business.address.street}, {business.address.city}, {business.address.state}</p>
+      <a class="btn btn-red" href="/contact">Get Directions</a>
+    </div>
+  </section>
+</Base>

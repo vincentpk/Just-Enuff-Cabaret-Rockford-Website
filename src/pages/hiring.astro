@@ -1,0 +1,90 @@
+---
+import Base from '../layouts/Base.astro';
+import { business } from '../data/site.js';
+
+// TODO: create a free form endpoint at https://formspree.io (or similar),
+// then replace FORM_ENDPOINT below with your real endpoint URL.
+const FORM_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
+---
+
+<Base
+  title="Now Hiring — Dancers, Bartenders & Staff | Just Enuff Cabaret Rockford IL"
+  description="Join the team at Just Enuff Cabaret in Rockford, IL. Now hiring entertainers/dancers, bartenders, cocktail servers, security, and DJs. Apply online — 21+ with valid ID."
+>
+  <div class="page-hero">
+    <span class="eyebrow">Join Our Team</span>
+    <h1 class="page-title">Now <em>Hiring</em></h1>
+    <div class="rule"></div>
+    <p class="lead">
+      We're always looking for entertainers, bartenders, cocktail servers, door staff,
+      and DJs. Fill out the application below or email
+      <a href={`mailto:${business.email}`} style="color:var(--gold);"> {business.email}</a>.
+    </p>
+  </div>
+
+  <section>
+    <div class="inner-sm">
+      <form class="card" action={FORM_ENDPOINT} method="POST">
+        <div class="form-grid">
+          <div class="form-field full">
+            <label for="position">Desired Position *</label>
+            <select id="position" name="position" required>
+              <option value="">Select a position</option>
+              <option>Entertainer / Dancer</option>
+              <option>Bartender</option>
+              <option>Cocktail Server</option>
+              <option>Door Staff / Security</option>
+              <option>DJ</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="firstName">First Name *</label>
+            <input id="firstName" name="firstName" type="text" required />
+          </div>
+          <div class="form-field">
+            <label for="lastName">Last Name *</label>
+            <input id="lastName" name="lastName" type="text" required />
+          </div>
+          <div class="form-field">
+            <label for="phone">Phone *</label>
+            <input id="phone" name="phone" type="tel" required />
+          </div>
+          <div class="form-field">
+            <label for="email">Email *</label>
+            <input id="email" name="email" type="email" required />
+          </div>
+          <div class="form-field">
+            <label for="dob">Date of Birth *</label>
+            <input id="dob" name="dob" type="date" required />
+          </div>
+          <div class="form-field">
+            <label for="cityState">City / State *</label>
+            <input id="cityState" name="cityState" type="text" required />
+          </div>
+          <div class="form-field full">
+            <label for="experience">Do you have any prior experience?</label>
+            <select id="experience" name="experience">
+              <option value="">Select one</option>
+              <option>Yes — I have experience</option>
+              <option>No — this would be my first time</option>
+            </select>
+          </div>
+          <div class="form-field full">
+            <label for="about">Tell Us About Yourself</label>
+            <textarea id="about" name="about" rows="5"></textarea>
+          </div>
+        </div>
+        <p class="form-fineprint">
+          A recent photo helps your application — email one to
+          <a href={`mailto:${business.email}`} style="color:var(--gold);"> {business.email}</a> after submitting.
+          All applicants must be 21+ with valid government-issued ID. Submitting this form does not
+          guarantee employment; management will contact qualified candidates.
+        </p>
+        <div style="margin-top:1.4rem;">
+          <button type="submit" class="btn btn-red">Submit Application</button>
+        </div>
+      </form>
+    </div>
+  </section>
+</Base>

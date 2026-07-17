@@ -1,0 +1,15 @@
+---
+// A 3:4 (1080×1440) photo slot with graceful "coming soon" placeholder.
+const { image, alt, label = 'Coming Soon', loading = 'lazy' } = Astro.props;
+---
+
+<div class="photo-slot">
+  {image ? (
+    <img src={image} alt={alt} width="1080" height="1440" loading={loading} />
+  ) : (
+    <div class="slot-placeholder">
+      <img class="emblem" src="/images/emblem.png" alt="" width="200" height="200" loading="lazy" />
+      <span>{label}</span>
+    </div>
+  )}
+</div>

@@ -1,0 +1,50 @@
+---
+import Base from '../layouts/Base.astro';
+import { business, faqs } from '../data/site.js';
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a }
+  }))
+};
+---
+
+<Base
+  title="FAQs | Just Enuff Cabaret — Rockford, IL Gentlemen's Club"
+  description="Frequently asked questions about Just Enuff Cabaret in Rockford, IL: age requirements, cover charge, dress code, parking, hours, bachelor parties, reservations & directions from Chicago and Wisconsin."
+  schema={faqSchema}
+>
+  <div class="page-hero">
+    <span class="eyebrow">Good to Know</span>
+    <h1 class="page-title">Frequently Asked <em>Questions</em></h1>
+    <div class="rule"></div>
+    <p class="lead">
+      Everything you need to know before your night out. Still have questions?
+      Call <a href={business.phoneHref} style="color:var(--gold);">{business.phone}</a>.
+    </p>
+  </div>
+
+  <section>
+    <div class="inner-sm">
+      {faqs.map((f) => (
+        <details class="faq-item">
+          <summary>{f.q}</summary>
+          <p>{f.a}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="inner-sm">
+      <h2>Ready for a Night Out?</h2>
+      <p>{business.hours} · 21+ with valid ID</p>
+      <a class="btn btn-red" href="/vip">Reserve VIP</a>
+      <a class="btn btn-gold" href="/contact" style="margin-left:0.8rem;">Directions</a>
+    </div>
+  </section>
+</Base>

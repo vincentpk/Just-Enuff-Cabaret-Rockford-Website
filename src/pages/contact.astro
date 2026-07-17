@@ -1,0 +1,95 @@
+---
+import Base from '../layouts/Base.astro';
+import { business, serviceAreas } from '../data/site.js';
+---
+
+<Base
+  title="Contact, Directions & Parking | Just Enuff Cabaret — 1609 S Alpine Rd, Rockford IL"
+  description="Find Just Enuff Cabaret at 1609 S Alpine Rd, Rockford, IL 61108. Free on-site parking, open 7 nights 4 PM–2 AM. Easy directions from Chicago, Elgin, Aurora, Lake Geneva, Madison, Milwaukee & Janesville. Call (815) 399-4600."
+>
+  <div class="page-hero">
+    <span class="eyebrow">Find Us</span>
+    <h1 class="page-title">Contact, Directions &amp; <em>Parking</em></h1>
+    <div class="rule"></div>
+  </div>
+
+  <section>
+    <div class="inner">
+      <div class="contact-grid">
+        <div class="card">
+          <h2 style="font-family:'Playfair Display',serif;color:var(--white);font-size:1.6rem;margin-bottom:1rem;">Visit Us</h2>
+          <div class="info-line">
+            <span class="lbl">Address</span>
+            <a href={business.mapsUrl} target="_blank" rel="noopener">
+              {business.address.street}, {business.address.city}, {business.address.state} {business.address.zip}
+            </a>
+          </div>
+          <div class="info-line">
+            <span class="lbl">Phone</span>
+            <a href={business.phoneHref}>{business.phone}</a>
+          </div>
+          <div class="info-line">
+            <span class="lbl">Email</span>
+            <a href={`mailto:${business.email}`}>{business.email}</a>
+          </div>
+          <div class="info-line">
+            <span class="lbl">Hours</span>
+            <span>{business.hoursShort} — open 7 nights a week</span>
+          </div>
+          <div class="info-line">
+            <span class="lbl">Parking</span>
+            <span>Free on-site parking in our private lot — no meters, no garages.</span>
+          </div>
+          <div class="info-line">
+            <span class="lbl">Entry</span>
+            <span>21+ with valid government-issued photo ID.</span>
+          </div>
+          <div style="margin-top:1.4rem;">
+            <a class="btn btn-red" href={business.mapsUrl} target="_blank" rel="noopener">Open in Google Maps</a>
+          </div>
+        </div>
+        <div class="map-frame">
+          <iframe
+            src={business.mapsEmbed}
+            title="Map to Just Enuff Cabaret, 1609 S Alpine Rd, Rockford IL"
+            loading="lazy"
+            allowfullscreen
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0;">
+    <div class="inner">
+      <div class="section-header">
+        <span class="eyebrow">Worth the Drive</span>
+        <h2 class="section-title">Directions from <em>Nearby Cities</em></h2>
+        <div class="rule"></div>
+        <p class="lead">
+          Just Enuff Cabaret sits minutes from I-90, I-39, and US-20 — an easy trip from
+          anywhere in northern Illinois or southern Wisconsin.
+        </p>
+      </div>
+      <div class="grid-4">
+        {serviceAreas.map((a) => (
+          <div class="card directions-card">
+            <h4>{a.city}</h4>
+            <div class="drive">{a.drive}</div>
+            <p>{a.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="inner-sm">
+      <h2>Reserve Before You Ride</h2>
+      <p>Coming with a group? Lock in a VIP booth or bottle service before you leave.</p>
+      <a class="btn btn-red" href={business.phoneHref}>Call {business.phone}</a>
+      <a class="btn btn-gold" href="/vip" style="margin-left:0.8rem;">See Packages</a>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,46 @@
+---
+import Base from '../layouts/Base.astro';
+import PhotoSlot from '../components/PhotoSlot.astro';
+import { business, events } from '../data/site.js';
+---
+
+<Base
+  title="Events & Party Nights | Just Enuff Cabaret — Rockford, IL Nightlife"
+  description="Upcoming events, theme nights & parties at Just Enuff Cabaret in Rockford, IL. Bachelor parties, birthdays & special events 7 nights a week. Check the latest flyers or call (815) 399-4600."
+>
+  <div class="page-hero">
+    <span class="eyebrow">What's On</span>
+    <h1 class="page-title">Upcoming <em>Events</em></h1>
+    <div class="rule"></div>
+    <p class="lead">
+      Theme nights, special guests, holiday parties, and more — there's always something
+      happening at Just Enuff Cabaret. Check back often or follow us on social media.
+    </p>
+  </div>
+
+  <section>
+    <div class="inner">
+      <div class="grid-3">
+        {events.map((e) => (
+          <div class="card" style="padding:0.9rem;">
+            <PhotoSlot image={e.image} alt={e.image ? `${e.title} — event at Just Enuff Cabaret, Rockford IL` : ''} label="Flyer Coming Soon" />
+            {(e.title || e.date) && (
+              <div class="card-name">
+                {e.title}{e.date && <div style="font-size:0.95rem;color:var(--grey);font-family:'Bebas Neue',sans-serif;letter-spacing:0.15em;">{e.date}</div>}
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="inner-sm">
+      <h2>Planning a Bachelor Party or Birthday?</h2>
+      <p>Reserved sections, bottle service, and celebration extras — we'll make it a night to remember.</p>
+      <a class="btn btn-red" href="/vip">Group Packages</a>
+      <a class="btn btn-gold" href={business.phoneHref} style="margin-left:0.8rem;">Call {business.phone}</a>
+    </div>
+  </section>
+</Base>

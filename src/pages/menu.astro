@@ -1,0 +1,71 @@
+---
+import Base from '../layouts/Base.astro';
+import { business, bottleMenu, foodMenu } from '../data/site.js';
+---
+
+<Base
+  title="Menu & Bottle Service | Just Enuff Cabaret — Rockford, IL"
+  description="Full bar, premium bottle service & late-night food at Just Enuff Cabaret, Rockford IL. Champagne from Veuve to Dom Pérignon, Clase Azul tequila, plus wings, pizza, cheesesteaks & tacos until 2 AM."
+>
+  <div class="page-hero">
+    <span class="eyebrow">Dining &amp; Drinks</span>
+    <h1 class="page-title">Menu &amp; <em>Bottle Service</em></h1>
+    <div class="rule"></div>
+    <p class="lead">Premium bottles and a full late-night kitchen, seven nights a week.</p>
+  </div>
+
+  <section>
+    <div class="inner-sm">
+      <div class="section-header">
+        <span class="eyebrow">Premium</span>
+        <h2 class="section-title">Bottle <em>Service</em></h2>
+        <div class="rule"></div>
+      </div>
+      {bottleMenu.map((cat) => (
+        <div class="menu-cat">
+          <h3>{cat.category}</h3>
+          {cat.items.map((it) => (
+            <div class="menu-item">
+              <div><span class="mi-name">{it.name}</span></div>
+              <span class="mi-price">{it.price}</span>
+            </div>
+          ))}
+        </div>
+      ))}
+      <p class="menu-fineprint">All bottle service prices include sales tax.</p>
+    </div>
+  </section>
+
+  <section style="padding-top:0;">
+    <div class="inner-sm">
+      <div class="section-header">
+        <span class="eyebrow">Late-Night Kitchen</span>
+        <h2 class="section-title">Food <em>Menu</em></h2>
+        <div class="rule"></div>
+      </div>
+      {foodMenu.map((cat) => (
+        <div class="menu-cat">
+          <h3>{cat.category}</h3>
+          {cat.items.map((it) => (
+            <div class="menu-item">
+              <div>
+                <span class="mi-name">{it.name}</span>
+                {it.desc && <div class="mi-desc">{it.desc}</div>}
+              </div>
+              <span class="mi-price">{it.price}</span>
+            </div>
+          ))}
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="inner-sm">
+      <h2>Reserve a Booth with Bottle Service</h2>
+      <p>Pair any bottle with a VIP package for the full experience.</p>
+      <a class="btn btn-red" href="/vip">VIP Packages</a>
+      <a class="btn btn-gold" href={business.phoneHref} style="margin-left:0.8rem;">Call {business.phone}</a>
+    </div>
+  </section>
+</Base>

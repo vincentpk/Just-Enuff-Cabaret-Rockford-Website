@@ -1,0 +1,46 @@
+---
+import Base from '../layouts/Base.astro';
+import PhotoSlot from '../components/PhotoSlot.astro';
+import { business, dancers } from '../data/site.js';
+---
+
+<Base
+  title="Dancers & Entertainers | Just Enuff Cabaret — Rockford, IL Strip Club"
+  description="Meet the entertainers of Just Enuff Cabaret — Rockford IL's premier strip club. Beautiful professional dancers performing 7 nights a week at 1609 S Alpine Rd. VIP meet & greets available."
+>
+  <div class="page-hero">
+    <span class="eyebrow">Featured Artists</span>
+    <h1 class="page-title">Meet the <em>Entertainers</em></h1>
+    <div class="rule"></div>
+    <p class="lead">
+      Our rotating roster of professional entertainers performs seven nights a week.
+      Book a VIP package for a personal meet &amp; greet.
+    </p>
+  </div>
+
+  <section>
+    <div class="inner">
+      <div class="grid-3">
+        {dancers.map((d, i) => (
+          <div class="card" style="padding:0.9rem;">
+            <PhotoSlot
+              image={d.image}
+              alt={`${d.name} — dancer at Just Enuff Cabaret gentlemen's club in Rockford, Illinois`}
+              loading={i < 3 ? 'eager' : 'lazy'}
+            />
+            <div class="card-name">{d.name}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="inner-sm">
+      <h2>Want the Full VIP Treatment?</h2>
+      <p>Our Red Heel and Cabaret Royale packages include entertainer meet &amp; greets and private time.</p>
+      <a class="btn btn-red" href="/vip">View VIP Packages</a>
+      <a class="btn btn-gold" href={business.phoneHref} style="margin-left:0.8rem;">Call {business.phone}</a>
+    </div>
+  </section>
+</Base>
