@@ -250,6 +250,10 @@ footer { border-top: 1px solid var(--border); padding: 3.5rem 2rem 2.5rem; text-
 .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.4rem 1.4rem; margin-bottom: 1.4rem; }
 .footer-links a { font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.15em; font-size: 0.85rem; color: var(--grey); }
 .footer-links a:hover { color: var(--gold); }
+.footer-socials { display: flex; justify-content: center; gap: 1.3rem; margin-bottom: 1.6rem; }
+.footer-socials a { color: var(--gold); transition: all 0.25s; display: inline-flex; }
+.footer-socials a:hover { color: var(--gold-light); transform: translateY(-2px); }
+.footer-socials svg { width: 22px; height: 22px; }
 .footer-legal { font-size: 0.85rem; color: rgba(160, 144, 128, 0.6); line-height: 1.8; }
 .footer-legal a:hover { color: var(--gold); }
 
