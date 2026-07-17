@@ -65,7 +65,8 @@ nav {
   display: flex; align-items: center; justify-content: space-between;
   padding: 0 2.5rem; height: 68px; backdrop-filter: blur(10px);
 }
-.nav-logo { height: 50px; width: auto; filter: drop-shadow(0 0 8px rgba(200, 16, 46, 0.55)); }
+.nav-brand { display: flex; align-items: center; height: 100%; }
+.nav-logo { height: 50px; width: auto; display: block; filter: drop-shadow(0 0 8px rgba(200, 16, 46, 0.55)); }
 .nav-links { display: flex; align-items: center; gap: 0.1rem; }
 .nav-links a {
   color: var(--cream); font-family: 'Bebas Neue', sans-serif; font-size: 0.88rem;
@@ -115,6 +116,14 @@ section { padding: 5rem 2rem; }
   align-items: center; justify-content: center; position: relative;
   background: radial-gradient(ellipse at center top, #2a000e 0%, #160006 35%, #0a0a0a 70%);
   overflow: hidden; padding: 3rem 2rem;
+}
+.hero-video {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; z-index: 0;
+}
+.hero-veil {
+  position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background: linear-gradient(to bottom, rgba(10, 2, 5, 0.55) 0%, rgba(10, 4, 6, 0.45) 45%, rgba(10, 10, 10, 0.82) 100%);
 }
 .curtain-l, .curtain-r { position: absolute; top: 0; bottom: 0; width: 16%; z-index: 1; }
 .curtain-l { left: 0; background: linear-gradient(to bottom, #180004, #0c0002); clip-path: polygon(0 0, 100% 0, 72% 100%, 0 100%); }
