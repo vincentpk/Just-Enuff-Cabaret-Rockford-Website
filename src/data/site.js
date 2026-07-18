@@ -86,6 +86,8 @@ export const galleryImages = [
   { src: '/images/gallery/gallery-1.jpg', alt: 'Inside Just Enuff Cabaret gentlemen\'s club in Rockford, IL' }
 ];
 
+// Note: VIP-section seating and waived cover are shown once as a shared line
+// on the VIP page and homepage ("Every package includes..."), not per package.
 export const packages = [
   {
     tier: 'Celebrate Freedom',
@@ -94,9 +96,7 @@ export const packages = [
     unit: 'bring the whole crew',
     perks: [
       'Show your finalized divorce papers and your first drink is on the house',
-      'Premium seating in our VIP section overlooking the stage',
       '1 bottle of champagne',
-      'Waived cover charge for the newly single guest of honor',
       '"Just Divorced" sash for the guest of honor'
     ],
     note: 'Freedom looks good on you. Bring your divorce decree, any date counts, and celebrate the fresh start. Call (815) 399-4600 to reserve.'
@@ -105,13 +105,11 @@ export const packages = [
     tier: 'Celebrate',
     name: 'The Birthday Package',
     price: '$300',
-    unit: 'up to 8 guests',
+    unit: 'up to 5 guests',
     perks: [
       'Custom birthday cake with the guest of honor\'s name on it',
-      'Premium seating in our VIP section overlooking the stage',
       '1 on-stage dance with the entertainer of your choice',
-      'Choice of a Just Enuff t-shirt or hat for the birthday guest',
-      'Waived cover charge for up to 8 guests'
+      'Choice of a Just Enuff t-shirt or hat for the birthday guest'
     ],
     note: 'Reserve at least one week in advance by calling (815) 399-4600. Because your custom cake is ordered ahead of time, payment is due in full when you book.'
   },
@@ -121,8 +119,6 @@ export const packages = [
     price: '$450',
     unit: 'up to 5 guests',
     perks: [
-      'Premium seating in our VIP section overlooking the stage',
-      'Waived cover charge for up to 5 guests',
       '1 bottle of Luc Belaire',
       'Choice of a Just Enuff t-shirt or hat for every guest',
       'Dedicated cocktail server'
@@ -133,11 +129,9 @@ export const packages = [
   {
     tier: 'Elite',
     name: 'Cabaret Royale',
-    price: 'Call for Pricing',
+    price: '$700',
     unit: 'up to 8 guests',
     perks: [
-      'Premium seating in our VIP section overlooking the stage',
-      'Waived cover charge for up to 8 guests',
       '1 bottle of Dom Pérignon Vintage 2015',
       '1 lap dance',
       'Dedicated cocktail server'
