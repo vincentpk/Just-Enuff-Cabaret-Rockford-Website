@@ -91,11 +91,11 @@ export const packages = [
     tier: 'Celebrate',
     name: 'The Birthday Package',
     price: '$300',
-    unit: 'up to 5 guests',
+    unit: 'up to 8 guests',
     perks: [
       'Custom birthday cake with the guest of honor\'s name on it',
       'Choice of a Just Enuff t-shirt or hat for the birthday guest',
-      'Waived cover charge for up to 5 guests'
+      'Waived cover charge for up to 8 guests'
     ],
     note: 'Reserve at least one week in advance by calling (815) 399-4600. Because your custom cake is ordered ahead of time, payment is due in full when you book.'
   },
