@@ -86,8 +86,6 @@ export const galleryImages = [
   { src: '/images/gallery/gallery-1.jpg', alt: 'Inside Just Enuff Cabaret gentlemen\'s club in Rockford, IL' }
 ];
 
-// Note: VIP-section seating and waived cover are shown once as a shared line
-// on the VIP page and homepage ("Every package includes..."), not per package.
 export const packages = [
   {
     tier: 'Celebrate Freedom',
@@ -96,6 +94,8 @@ export const packages = [
     unit: 'up to 5 guests',
     perks: [
       'Show your finalized divorce papers and your first drink is on the house',
+      'Premium seating in our VIP section overlooking the stage',
+      'Waived cover charge for up to 5 guests',
       '1 bottle of champagne',
       '"Just Divorced" sash for the guest of honor'
     ],
@@ -108,6 +108,8 @@ export const packages = [
     unit: 'up to 5 guests',
     perks: [
       'Custom birthday cake with the guest of honor\'s name on it',
+      'Premium seating in our VIP section overlooking the stage',
+      'Waived cover charge for up to 5 guests',
       '1 on-stage dance with the entertainer of your choice',
       'Choice of a Just Enuff t-shirt or hat for the birthday guest'
     ],
@@ -119,6 +121,8 @@ export const packages = [
     price: '$450',
     unit: 'up to 5 guests',
     perks: [
+      'Premium seating in our VIP section overlooking the stage',
+      'Waived cover charge for up to 5 guests',
       '1 bottle of Luc Belaire',
       'Choice of a Just Enuff t-shirt or hat for every guest',
       'Dedicated cocktail server'
@@ -132,6 +136,8 @@ export const packages = [
     price: '$700',
     unit: 'up to 8 guests',
     perks: [
+      'Premium seating in our VIP section overlooking the stage',
+      'Waived cover charge for up to 8 guests',
       '1 bottle of Dom Pérignon Vintage 2015',
       'Dedicated cocktail server'
     ],
