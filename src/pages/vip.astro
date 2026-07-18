@@ -26,9 +26,10 @@ import { business, packages } from '../data/site.js';
             <div>
               <div class="pkg-tier">{p.tier}</div>
               <div class="pkg-name">{p.name}</div>
+              <div class="pkg-unit">{p.unit}</div>
             </div>
-            <div class="pkg-price">{p.price} <small>{p.unit}</small></div>
             <ul>{p.perks.map((perk) => <li>{perk}</li>)}</ul>
+            <div class="pkg-price"><a href={business.phoneHref}>{p.price}</a></div>
             <div class="pkg-note">{p.note}</div>
           </div>
         ))}

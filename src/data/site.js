@@ -102,14 +102,12 @@ export const packages = [
     tier: 'Tier 2 · Signature',
     name: 'The Red Heel',
     price: 'Call for Pricing',
-    unit: 'up to 4 guests',
+    unit: 'up to 5 guests',
     perks: [
       'Premium seating in our VIP section overlooking the stage',
-      '1 bottle of premium liquor',
-      'Full appetizer spread',
-      'Dedicated cocktail server',
-      'Meet & greet with a featured entertainer',
-      'Personalized event memento'
+      '1 bottle of Luc Belaire',
+      'Choice of a Just Enuff t-shirt or hat for every guest',
+      'Dedicated cocktail server'
     ],
     note: 'Our most popular experience. Book early!',
     featured: true
