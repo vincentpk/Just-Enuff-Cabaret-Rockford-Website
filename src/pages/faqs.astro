@@ -2,6 +2,14 @@
 import Base from '../layouts/Base.astro';
 import { business, faqs } from '../data/site.js';
 
+// Make the phone number tappable wherever it appears in answers
+// (the FAQ schema below keeps the plain-text version)
+const linkPhone = (text) =>
+  text.replaceAll(
+    business.phone,
+    `<a href="${business.phoneHref}" style="color:var(--gold);">${business.phone}</a>`
+  );
+
 const faqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
@@ -33,7 +41,7 @@ const faqSchema = {
       {faqs.map((f) => (
         <details class="faq-item">
           <summary>{f.q}</summary>
-          <p>{f.a}</p>
+          <p set:html={linkPhone(f.a)} />
         </details>
       ))}
     </div>

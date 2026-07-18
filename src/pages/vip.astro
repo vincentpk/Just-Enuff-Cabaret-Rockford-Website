@@ -1,6 +1,13 @@
 ---
 import Base from '../layouts/Base.astro';
 import { business, packages } from '../data/site.js';
+
+// Make the phone number tappable wherever it appears in package notes
+const linkPhone = (text) =>
+  text.replaceAll(
+    business.phone,
+    `<a href="${business.phoneHref}" style="color:var(--gold);">${business.phone}</a>`
+  );
 ---
 
 <Base
@@ -29,7 +36,7 @@ import { business, packages } from '../data/site.js';
             </div>
             <div class="pkg-price">{p.price} <small>{p.unit}</small></div>
             <ul>{p.perks.map((perk) => <li>{perk}</li>)}</ul>
-            <div class="pkg-note">{p.note}</div>
+            <div class="pkg-note" set:html={linkPhone(p.note)} />
           </div>
         ))}
       </div>
