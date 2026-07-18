@@ -276,6 +276,6 @@ export const faqs = [
   },
   {
     q: 'How do I become an entertainer or join the staff?',
-    a: 'Entertainers audition year-round, and we regularly have positions for bartenders, servers, hosts, security, and DJs. Fill out the application on our Apply page.'
+    a: 'Entertainers audition year-round, and we regularly have positions for bartenders, servers, hosts, and security. Fill out the application on our Apply page.'
   }
 ];
