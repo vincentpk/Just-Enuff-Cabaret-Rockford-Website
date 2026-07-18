@@ -94,6 +94,7 @@ export const packages = [
     unit: 'up to 5 guests',
     perks: [
       'Custom birthday cake with the guest of honor\'s name on it',
+      'Choice of a Just Enuff t-shirt or hat for the birthday guest',
       'Waived cover charge for up to 5 guests'
     ],
     note: 'Reserve at least one week in advance by calling (815) 399-4600. Because your custom cake is ordered ahead of time, payment is due in full when you book.'
