@@ -90,7 +90,7 @@ export const packages = [
   {
     tier: 'Celebrate Freedom',
     name: 'The Divorce Party',
-    price: '$250',
+    price: '$249',
     unit: 'up to 5 guests',
     perks: [
       'Show your finalized divorce papers and your first drink is on the house',
@@ -104,7 +104,7 @@ export const packages = [
   {
     tier: 'Celebrate',
     name: 'The Birthday Package',
-    price: '$300',
+    price: '$299',
     unit: 'up to 5 guests',
     perks: [
       'Custom birthday cake with the guest of honor\'s name on it',
@@ -118,7 +118,7 @@ export const packages = [
   {
     tier: 'Signature',
     name: 'The Red Heel',
-    price: '$450',
+    price: '$449',
     unit: 'up to 5 guests',
     perks: [
       'Premium seating in our VIP section overlooking the stage',
@@ -133,7 +133,7 @@ export const packages = [
   {
     tier: 'Elite',
     name: 'Cabaret Royale',
-    price: '$700',
+    price: '$699',
     unit: 'up to 8 guests',
     perks: [
       'Premium seating in our VIP section overlooking the stage',
