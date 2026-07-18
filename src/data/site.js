@@ -91,7 +91,7 @@ export const packages = [
     tier: 'Celebrate',
     name: 'The Birthday Package',
     price: 'Call for Pricing',
-    unit: '(815) 399-4600',
+    unit: 'up to 5 guests',
     perks: [
       'Custom birthday cake with the guest of honor\'s name on it',
       'Waived cover charge for up to 5 guests'
@@ -101,7 +101,7 @@ export const packages = [
   {
     tier: 'Tier 2 · Signature',
     name: 'The Red Heel',
-    price: '$350',
+    price: 'Call for Pricing',
     unit: 'up to 4 guests',
     perks: [
       'Premium seating in our VIP section overlooking the stage',
@@ -117,7 +117,7 @@ export const packages = [
   {
     tier: 'Tier 3 · Elite',
     name: 'Cabaret Royale',
-    price: '$750',
+    price: 'Call for Pricing',
     unit: 'up to 8 guests',
     perks: [
       'Front-row stage-side table',
@@ -133,7 +133,7 @@ export const packages = [
   {
     tier: 'Group / Bachelor',
     name: 'The Squad',
-    price: '$600',
+    price: 'Call for Pricing',
     unit: 'up to 10 guests',
     perks: [
       'Reserved seating for your whole group',
