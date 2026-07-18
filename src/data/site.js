@@ -94,6 +94,8 @@ export const packages = [
     unit: 'up to 8 guests',
     perks: [
       'Custom birthday cake with the guest of honor\'s name on it',
+      'Premium seating in our VIP section overlooking the stage',
+      '1 on-stage dance with the entertainer of your choice',
       'Choice of a Just Enuff t-shirt or hat for the birthday guest',
       'Waived cover charge for up to 8 guests'
     ],
