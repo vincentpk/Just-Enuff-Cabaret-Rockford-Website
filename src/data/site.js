@@ -270,7 +270,7 @@ export const faqs = [
   },
   {
     q: 'Is Just Enuff Cabaret worth the drive from Chicago or Wisconsin?',
-    a: 'We think so. Guests regularly join us from Chicago (~90 min), Elgin (~55 min), Lake Geneva (~45 min), Madison (~70 min), and Milwaukee (~85 min). With free parking, VIP packages, and no big-city prices, it makes for a great night out.'
+    a: 'We think so. Guests regularly join us from Chicago (~90 min), Elgin (~55 min), Lake Geneva (~45 min), Madison (~70 min), and Milwaukee (~85 min). Even many of our entertainers drive an hour or more to perform at Just Enuff, which tells you something about the room. With free parking, VIP packages, and no big-city prices, it makes for a great night out.'
   },
   {
     q: 'What makes Just Enuff Cabaret the best strip club in the Rockford area?',
