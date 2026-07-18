@@ -104,7 +104,7 @@ export const packages = [
     price: '$350',
     unit: 'up to 4 guests',
     perks: [
-      'Premium VIP booth seating',
+      'Premium seating in our VIP section overlooking the stage',
       '1 bottle of premium liquor',
       'Full appetizer spread',
       'Dedicated cocktail server',
@@ -136,7 +136,7 @@ export const packages = [
     price: '$600',
     unit: 'up to 10 guests',
     perks: [
-      'Reserved section with booth seating',
+      'Reserved seating for your whole group',
       '2 bottles of choice liquor',
       'Shareable food platters',
       'Group photo with entertainers',
@@ -267,8 +267,8 @@ export const faqs = [
     a: 'Yes, we have a full bar with premium bottle service every night. Our full kitchen serves appetizers, pizza, sandwiches, tacos, and more until late on Friday, Saturday, and Sunday. On other nights, pizza and mozzarella sticks are always available.'
   },
   {
-    q: 'How do I reserve a VIP booth or bottle service?',
-    a: 'Call (815) 399-4600 or email info@justenuffcabaret.com. Weekend booths go fast, so we recommend booking at least a few days ahead.'
+    q: 'How do I reserve VIP seating or bottle service?',
+    a: 'Call (815) 399-4600 or email info@justenuffcabaret.com. Weekend VIP seating goes fast, so we recommend booking at least a few days ahead.'
   },
   {
     q: 'Is Just Enuff Cabaret worth the drive from Chicago or Wisconsin?',
