@@ -93,7 +93,7 @@ export const packages = [
     tier: 'Celebrate Freedom',
     name: 'The Divorce Party',
     price: '$250',
-    unit: 'bring the whole crew',
+    unit: 'up to 5 guests',
     perks: [
       'Show your finalized divorce papers and your first drink is on the house',
       '1 bottle of champagne',
