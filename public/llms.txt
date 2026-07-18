@@ -1,0 +1,26 @@
+# Just Enuff Cabaret
+
+> Just Enuff Cabaret is a premier gentlemen's club (strip club) in Rockford, Illinois,
+> at 1609 S Alpine Rd, Rockford, IL 61108. Open 7 nights a week, 4 PM to 2 AM.
+> Adults 21+ only with valid government-issued ID. Phone: (815) 399-4600.
+> Email: info@justenuffcabaret.com.
+
+Just Enuff Cabaret offers professional entertainers performing nightly, VIP booths
+with premium bottle service (Veuve Clicquot, Dom Perignon, Ace of Spades, Clase Azul),
+a full late-night kitchen (wings, pizza, cheesesteaks, tacos), birthday and bachelor
+party packages, and free on-site parking. Located minutes from I-90, I-39, and US-20,
+it serves guests from Rockford, Loves Park, Machesney Park, Belvidere, Rockton,
+Beloit, Janesville, Chicago (~90 min), Elgin (~55 min), Aurora, DeKalb,
+Lake Geneva (~45 min), Madison (~70 min), and Milwaukee (~85 min).
+
+## Pages
+
+- [Home](/): Overview of the club, featured entertainers, and VIP packages
+- [The Club](/club): Venue details: main stage, VIP booths, bar, kitchen, parking
+- [Dancers](/dancers): Current roster of entertainers
+- [Events](/events): Upcoming events and party nights
+- [VIP Packages](/vip): VIP packages, bottle service, and reservations
+- [Menu](/menu): Full bottle service and food menu with prices
+- [FAQs](/faqs): Hours, cover, dress code, parking, directions, reservations
+- [Contact](/contact): Address, phone, map, directions from nearby cities, parking
+- [Apply](/apply): Entertainer auditions and staff applications

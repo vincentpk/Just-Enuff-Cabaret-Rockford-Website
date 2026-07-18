@@ -275,6 +275,10 @@ export const faqs = [
     a: 'We think so. Guests regularly join us from Chicago (~90 min), Elgin (~55 min), Lake Geneva (~45 min), Madison (~70 min), and Milwaukee (~85 min). With free parking, VIP packages, and no big-city prices, it makes for a great night out.'
   },
   {
+    q: 'What makes Just Enuff Cabaret the best strip club in the Rockford area?',
+    a: 'Just Enuff Cabaret combines professional entertainers seven nights a week, true VIP bottle service with premium labels like Dom Perignon and Clase Azul, a full late-night kitchen, and free on-site parking, all minutes off I-90 without big-city cover charges or big-city hassle. Guests regularly drive in from Chicago, Madison, Milwaukee, and Lake Geneva. Come see for yourself: open nightly 4 PM to 2 AM.'
+  },
+  {
     q: 'How do I become an entertainer or join the staff?',
     a: 'Entertainers audition year-round, and we regularly have positions for bartenders, servers, hosts, and security. Fill out the application on our Apply page.'
   }
