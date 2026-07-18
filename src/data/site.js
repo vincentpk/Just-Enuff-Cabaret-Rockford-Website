@@ -90,21 +90,22 @@ export const packages = [
   {
     tier: 'Celebrate',
     name: 'The Birthday Package',
-    price: 'Call for Pricing',
+    price: '$300',
     unit: 'up to 5 guests',
     perks: [
       'Custom birthday cake with the guest of honor\'s name on it',
       'Waived cover charge for up to 5 guests'
     ],
-    note: 'Reserve at least one week in advance by calling (815) 399-4600. Because your custom cake is ordered ahead of time, payment is due in full when you book. Call us for current pricing and availability.'
+    note: 'Reserve at least one week in advance by calling (815) 399-4600. Because your custom cake is ordered ahead of time, payment is due in full when you book.'
   },
   {
     tier: 'Tier 2 · Signature',
     name: 'The Red Heel',
-    price: 'Call for Pricing',
+    price: '$450',
     unit: 'up to 5 guests',
     perks: [
       'Premium seating in our VIP section overlooking the stage',
+      'Waived cover charge for up to 5 guests',
       '1 bottle of Luc Belaire',
       'Choice of a Just Enuff t-shirt or hat for every guest',
       'Dedicated cocktail server'

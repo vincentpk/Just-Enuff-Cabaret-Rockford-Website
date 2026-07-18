@@ -91,10 +91,9 @@ const featuredPackages = packages.slice(0, 3);
             <div>
               <div class="pkg-tier">{p.tier}</div>
               <div class="pkg-name">{p.name}</div>
-              <div class="pkg-unit">{p.unit}</div>
             </div>
+            <div class="pkg-price">{p.price} <small>{p.unit}</small></div>
             <ul>{p.perks.slice(0, 4).map((perk) => <li>{perk}</li>)}</ul>
-            <div class="pkg-price"><a href={business.phoneHref}>{p.price}</a></div>
           </div>
         ))}
       </div>

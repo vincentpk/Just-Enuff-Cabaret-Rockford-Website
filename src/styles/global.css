@@ -193,10 +193,8 @@ section { padding: 5rem 2rem; }
 .pkg { display: flex; flex-direction: column; gap: 1rem; }
 .pkg-tier { font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.3em; font-size: 0.8rem; color: var(--red); text-transform: uppercase; }
 .pkg-name { font-family: 'Playfair Display', serif; font-size: 1.7rem; color: var(--gold-light); }
-.pkg-unit { font-family: 'Bebas Neue', sans-serif; font-size: 0.9rem; letter-spacing: 0.15em; color: var(--grey); margin-top: 0.3rem; }
-.pkg-price { font-family: 'Bebas Neue', sans-serif; font-size: 0.95rem; letter-spacing: 0.15em; line-height: 1.2; margin-top: 0.2rem; }
-.pkg-price a { color: var(--grey); border-bottom: 1px solid rgba(160, 144, 128, 0.35); transition: all 0.25s; }
-.pkg-price a:hover { color: var(--cream); border-color: var(--grey); }
+.pkg-price { font-family: 'Bebas Neue', sans-serif; font-size: 2.2rem; color: var(--gold-light); line-height: 1; }
+.pkg-price small { font-size: 0.9rem; color: var(--grey); letter-spacing: 0.1em; }
 .pkg ul { list-style: none; display: flex; flex-direction: column; gap: 0.45rem; }
 .pkg li { padding-left: 1.3rem; position: relative; color: var(--cream); }
 .pkg li::before { content: '◆'; position: absolute; left: 0; color: var(--red); font-size: 0.7rem; top: 0.35rem; }
