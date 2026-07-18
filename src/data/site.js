@@ -258,7 +258,7 @@ export const faqs = [
   },
   {
     q: 'Do you host bachelor parties and birthdays?',
-    a: 'Absolutely. Our group packages include reserved sections, bottle service, food platters, and celebration extras. See our VIP Packages page or call to book.'
+    a: 'Absolutely. Our group packages include reserved VIP seating, bottle service, and celebration perks. See our VIP Packages page or call to book.'
   },
   {
     q: 'Do you serve food and drinks?',
