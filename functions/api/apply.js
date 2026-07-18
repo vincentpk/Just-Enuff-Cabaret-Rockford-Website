@@ -36,7 +36,7 @@ export async function onRequestPost({ request, env }) {
   // Honeypot: real users never fill this hidden field. Pretend success for bots.
   if (data.company) return json({ ok: true });
 
-  const required = ['position', 'firstName', 'lastName', 'phone', 'email', 'dob', 'cityState'];
+  const required = ['position', 'firstName', 'lastName', 'phone', 'email', 'dob', 'city', 'state'];
   for (const f of required) {
     if (!data[f] || !String(data[f]).trim()) {
       return json({ ok: false, error: 'Please fill in all required fields.' }, 400);
@@ -44,6 +44,15 @@ export async function onRequestPost({ request, env }) {
   }
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
     return json({ ok: false, error: 'Please enter a valid email address.' }, 400);
+  }
+  if (String(data.phone).replace(/\D/g, '').length !== 10) {
+    return json({ ok: false, error: 'Please enter a 10-digit phone number.' }, 400);
+  }
+  const dob = new Date(data.dob + 'T12:00:00');
+  const cutoff = new Date();
+  cutoff.setFullYear(cutoff.getFullYear() - 21);
+  if (isNaN(dob.getTime()) || dob > cutoff || dob < new Date('1920-01-01')) {
+    return json({ ok: false, error: 'Please enter a valid date of birth. Applicants must be 21 or older.' }, 400);
   }
 
   // Required photo attachment (base64). Graph's request limit is ~4 MB total,
@@ -90,7 +99,7 @@ export async function onRequestPost({ request, env }) {
     ['Phone', data.phone],
     ['Email', data.email],
     ['Date of Birth', data.dob],
-    ['City / State', data.cityState],
+    ['City / State', `${data.city}, ${data.state}`],
     ['Prior Experience', data.experience || '(not answered)'],
     ['About', data.about || '(not answered)'],
     ['Photo', attachments.length ? 'Attached to this email' : '(none uploaded)']

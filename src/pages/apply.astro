@@ -48,7 +48,8 @@ import { business } from '../data/site.js';
           </div>
           <div class="form-field">
             <label for="phone">Phone *</label>
-            <input id="phone" name="phone" type="tel" autocomplete="tel" required />
+            <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="numeric"
+              placeholder="(815) 555-1234" maxlength="14" pattern="\(\d{3}\) \d{3}-\d{4}" required />
           </div>
           <div class="form-field">
             <label for="email">Email *</label>
@@ -56,11 +57,68 @@ import { business } from '../data/site.js';
           </div>
           <div class="form-field">
             <label for="dob">Date of Birth *</label>
-            <input id="dob" name="dob" type="date" required />
+            <input id="dob" name="dob" type="date" min="1920-01-01" required />
           </div>
           <div class="form-field">
-            <label for="cityState">City / State *</label>
-            <input id="cityState" name="cityState" type="text" required />
+            <label for="city">City *</label>
+            <input id="city" name="city" type="text" autocomplete="address-level2" required />
+          </div>
+          <div class="form-field">
+            <label for="state">State *</label>
+            <select id="state" name="state" autocomplete="address-level1" required>
+              <option value="">Select state</option>
+              <option>AL</option>
+              <option>AK</option>
+              <option>AZ</option>
+              <option>AR</option>
+              <option>CA</option>
+              <option>CO</option>
+              <option>CT</option>
+              <option>DE</option>
+              <option>FL</option>
+              <option>GA</option>
+              <option>HI</option>
+              <option>ID</option>
+              <option>IL</option>
+              <option>IN</option>
+              <option>IA</option>
+              <option>KS</option>
+              <option>KY</option>
+              <option>LA</option>
+              <option>ME</option>
+              <option>MD</option>
+              <option>MA</option>
+              <option>MI</option>
+              <option>MN</option>
+              <option>MS</option>
+              <option>MO</option>
+              <option>MT</option>
+              <option>NE</option>
+              <option>NV</option>
+              <option>NH</option>
+              <option>NJ</option>
+              <option>NM</option>
+              <option>NY</option>
+              <option>NC</option>
+              <option>ND</option>
+              <option>OH</option>
+              <option>OK</option>
+              <option>OR</option>
+              <option>PA</option>
+              <option>RI</option>
+              <option>SC</option>
+              <option>SD</option>
+              <option>TN</option>
+              <option>TX</option>
+              <option>UT</option>
+              <option>VT</option>
+              <option>VA</option>
+              <option>WA</option>
+              <option>WV</option>
+              <option>WI</option>
+              <option>WY</option>
+              <option>DC</option>
+            </select>
           </div>
           <div class="form-field full">
             <label for="experience">Do you have any prior experience?</label>
@@ -115,6 +173,29 @@ import { business } from '../data/site.js';
     const form = document.getElementById('applyForm');
     const btn = document.getElementById('applyBtn');
     const status = document.getElementById('applyStatus');
+
+    // Phone: digits only, auto-formatted as (XXX) XXX-XXXX
+    const phoneEl = document.getElementById('phone');
+    phoneEl.addEventListener('input', () => {
+      const d = phoneEl.value.replace(/\D/g, '').slice(0, 10);
+      let out = d;
+      if (d.length > 6) out = `(${d.slice(0, 3)}) ${d.slice(3, 6)}-${d.slice(6)}`;
+      else if (d.length > 3) out = `(${d.slice(0, 3)}) ${d.slice(3)}`;
+      else if (d.length > 0) out = `(${d}`;
+      phoneEl.value = out;
+      phoneEl.setCustomValidity(d.length === 10 ? '' : 'Please enter a 10-digit phone number.');
+    });
+
+    // Date of birth: must be a real date at least 21 years ago
+    const dobEl = document.getElementById('dob');
+    const cutoff = new Date();
+    cutoff.setFullYear(cutoff.getFullYear() - 21);
+    dobEl.max = cutoff.toISOString().slice(0, 10);
+    dobEl.addEventListener('change', () => {
+      dobEl.setCustomValidity(
+        dobEl.value && dobEl.value > dobEl.max ? 'All applicants must be 21 or older.' : ''
+      );
+    });
 
     // Shrink big phone photos in the browser so they fit in an email attachment
     async function preparePhoto(file) {
