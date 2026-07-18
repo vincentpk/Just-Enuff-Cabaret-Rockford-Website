@@ -262,7 +262,7 @@ export const faqs = [
   },
   {
     q: 'Do you serve food and drinks?',
-    a: 'Yes, we have a full bar with premium bottle service every night. Our full kitchen serves appetizers, pizza, sandwiches, tacos, and more until late on Friday, Saturday, and Sunday. On other nights, pizza and mozzarella sticks are always available.'
+    a: 'Yes, we have a full bar with premium bottle service every night. Our full kitchen serves appetizers, pizza, sandwiches, tacos, and more until late on Friday, Saturday, and Sunday. On other nights, pizza and mozzarella sticks are always available. See our full menu for bottle service and food.'
   },
   {
     q: 'How do I reserve VIP seating or bottle service?',

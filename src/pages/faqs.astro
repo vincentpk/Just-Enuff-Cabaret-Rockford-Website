@@ -10,7 +10,8 @@ const enrich = (text) =>
     .replaceAll(business.phone, gold(business.phoneHref, business.phone))
     .replaceAll('Apply page', gold('/apply', 'Apply page'))
     .replaceAll('VIP Packages page', gold('/vip', 'VIP Packages page'))
-    .replaceAll('Now Hiring page', gold('/apply', 'Now Hiring page'));
+    .replaceAll('Now Hiring page', gold('/apply', 'Now Hiring page'))
+    .replaceAll('full menu', gold('/menu', 'full menu'));
 
 const faqSchema = {
   '@context': 'https://schema.org',
