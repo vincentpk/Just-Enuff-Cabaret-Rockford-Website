@@ -8,6 +8,7 @@ const gold = (href, label) => `<a href="${href}" style="color:var(--gold);">${la
 const enrich = (text) =>
   text
     .replaceAll(business.phone, gold(business.phoneHref, business.phone))
+    .replaceAll(business.email, gold(`mailto:${business.email}`, business.email))
     .replaceAll('Apply page', gold('/apply', 'Apply page'))
     .replaceAll('VIP Packages page', gold('/vip', 'VIP Packages page'))
     .replaceAll('Now Hiring page', gold('/apply', 'Now Hiring page'))
