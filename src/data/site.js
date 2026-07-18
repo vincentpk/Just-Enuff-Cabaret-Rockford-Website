@@ -133,7 +133,6 @@ export const packages = [
     unit: 'up to 8 guests',
     perks: [
       '1 bottle of Dom Pérignon Vintage 2015',
-      '1 lap dance',
       'Dedicated cocktail server'
     ],
     note: 'The ultimate VIP experience. Call to book.'
