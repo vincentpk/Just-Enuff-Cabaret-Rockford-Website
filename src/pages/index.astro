@@ -86,7 +86,7 @@ const featuredPackages = packages.slice(0, 3);
       </div>
       <div class="grid-3">
         {featuredPackages.map((p) => (
-          <div class={`card pkg ${p.featured ? 'featured' : ''}`}>
+          <a href="/vip" class={`card pkg ${p.featured ? 'featured' : ''}`} aria-label={`${p.name}: see full details and reserve`}>
             {p.featured && <div class="badge">Most Popular</div>}
             <div>
               <div class="pkg-tier">{p.tier}</div>
@@ -94,7 +94,7 @@ const featuredPackages = packages.slice(0, 3);
             </div>
             <div class="pkg-price">{p.price} <small>{p.unit}</small></div>
             <ul>{p.perks.map((perk) => <li>{perk}</li>)}</ul>
-          </div>
+          </a>
         ))}
       </div>
       <div style="text-align:center;margin-top:2.2rem;">

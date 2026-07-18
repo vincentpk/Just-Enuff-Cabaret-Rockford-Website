@@ -191,6 +191,8 @@ section { padding: 5rem 2rem; }
 
 /* ---------- Packages ---------- */
 .pkg { display: flex; flex-direction: column; gap: 1rem; }
+a.pkg { transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s; }
+a.pkg:hover { border-color: rgba(201, 168, 76, 0.55); transform: translateY(-4px); box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45); }
 .pkg-tier { font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.3em; font-size: 0.8rem; color: var(--red); text-transform: uppercase; }
 .pkg-name { font-family: 'Playfair Display', serif; font-size: 1.7rem; color: var(--gold-light); }
 .pkg-price { font-family: 'Bebas Neue', sans-serif; font-size: 2.2rem; color: var(--gold-light); line-height: 1; }
