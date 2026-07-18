@@ -2,13 +2,15 @@
 import Base from '../layouts/Base.astro';
 import { business, faqs } from '../data/site.js';
 
-// Make the phone number tappable wherever it appears in answers
-// (the FAQ schema below keeps the plain-text version)
-const linkPhone = (text) =>
-  text.replaceAll(
-    business.phone,
-    `<a href="${business.phoneHref}" style="color:var(--gold);">${business.phone}</a>`
-  );
+// Make the phone number and internal page references tappable wherever they
+// appear in answers (the FAQ schema below keeps the plain-text version).
+const gold = (href, label) => `<a href="${href}" style="color:var(--gold);">${label}</a>`;
+const enrich = (text) =>
+  text
+    .replaceAll(business.phone, gold(business.phoneHref, business.phone))
+    .replaceAll('Apply page', gold('/apply', 'Apply page'))
+    .replaceAll('VIP Packages page', gold('/vip', 'VIP Packages page'))
+    .replaceAll('Now Hiring page', gold('/apply', 'Now Hiring page'));
 
 const faqSchema = {
   '@context': 'https://schema.org',
@@ -41,7 +43,7 @@ const faqSchema = {
       {faqs.map((f) => (
         <details class="faq-item">
           <summary>{f.q}</summary>
-          <p set:html={linkPhone(f.a)} />
+          <p set:html={enrich(f.a)} />
         </details>
       ))}
     </div>
