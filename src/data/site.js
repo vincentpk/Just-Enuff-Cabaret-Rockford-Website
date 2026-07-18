@@ -264,7 +264,7 @@ export const faqs = [
   },
   {
     q: 'Do you serve food and drinks?',
-    a: 'Yes, we have a full bar with premium bottle service plus a full kitchen serving appetizers, pizza, sandwiches, tacos, and more until late.'
+    a: 'Yes, we have a full bar with premium bottle service every night. Our full kitchen serves appetizers, pizza, sandwiches, tacos, and more until late on Friday, Saturday, and Sunday.'
   },
   {
     q: 'How do I reserve a VIP booth or bottle service?',
