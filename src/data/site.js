@@ -137,12 +137,12 @@ export const packages = [
     unit: 'up to 8 guests',
     perks: [
       'Front-row stage-side table',
-      '2 bottles of premium liquor',
+      '1 bottle of Dom Pérignon Vintage 2015',
+      '1 lap dance',
       'Full dinner & dessert',
       'Personal host & cocktail butler',
       'Private 30-min entertainer time',
-      'Custom cake or celebration package',
-      'Complimentary limo coordination'
+      'Custom cake or celebration package'
     ],
     note: 'The ultimate VIP experience. Call to book.'
   }
