@@ -88,6 +88,20 @@ export const galleryImages = [
 
 export const packages = [
   {
+    tier: 'Celebrate Freedom',
+    name: 'The Divorce Party',
+    price: '$250',
+    unit: 'bring the whole crew',
+    perks: [
+      'Show your finalized divorce papers and your first drink is on the house',
+      'Premium seating in our VIP section overlooking the stage',
+      '1 bottle of champagne',
+      'Waived cover charge for the newly single guest of honor',
+      '"Just Divorced" sash for the guest of honor'
+    ],
+    note: 'Freedom looks good on you. Bring your divorce decree, any date counts, and celebrate the fresh start. Call (815) 399-4600 to reserve.'
+  },
+  {
     tier: 'Celebrate',
     name: 'The Birthday Package',
     price: '$300',
@@ -102,7 +116,7 @@ export const packages = [
     note: 'Reserve at least one week in advance by calling (815) 399-4600. Because your custom cake is ordered ahead of time, payment is due in full when you book.'
   },
   {
-    tier: 'Tier 2 · Signature',
+    tier: 'Signature',
     name: 'The Red Heel',
     price: '$450',
     unit: 'up to 5 guests',
@@ -117,7 +131,7 @@ export const packages = [
     featured: true
   },
   {
-    tier: 'Tier 3 · Elite',
+    tier: 'Elite',
     name: 'Cabaret Royale',
     price: 'Call for Pricing',
     unit: 'up to 8 guests',
@@ -131,20 +145,6 @@ export const packages = [
       'Complimentary limo coordination'
     ],
     note: 'The ultimate VIP experience. Call to book.'
-  },
-  {
-    tier: 'Celebrate Freedom',
-    name: 'The Divorce Party',
-    price: 'Call for Pricing',
-    unit: 'bring the whole crew',
-    perks: [
-      'Show your finalized divorce papers and your first drink is on the house',
-      'Waived cover charge for the newly single guest of honor',
-      'Reserved seating for your whole group',
-      '"Just Divorced" sash for the guest of honor',
-      'Celebratory champagne toast'
-    ],
-    note: 'Freedom looks good on you. Bring your divorce decree, any date counts, and celebrate the fresh start. Call (815) 399-4600 to reserve.'
   }
 ];
 
