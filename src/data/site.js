@@ -133,19 +133,18 @@ export const packages = [
     note: 'The ultimate VIP experience. Call to book.'
   },
   {
-    tier: 'Group / Bachelor',
-    name: 'The Squad',
+    tier: 'Celebrate Freedom',
+    name: 'The Divorce Party',
     price: 'Call for Pricing',
-    unit: 'up to 10 guests',
+    unit: 'bring the whole crew',
     perks: [
+      'Show your finalized divorce papers and your first drink is on the house',
+      'Waived cover charge for the newly single guest of honor',
       'Reserved seating for your whole group',
-      '2 bottles of choice liquor',
-      'Shareable food platters',
-      'Group photo with entertainers',
-      'Groom/birthday sash & crown',
-      'Custom playlist for 1 hour'
+      '"Just Divorced" sash for the guest of honor',
+      'Celebratory champagne toast'
     ],
-    note: 'Bachelor & birthday parties welcome!'
+    note: 'Freedom looks good on you. Bring your divorce decree, any date counts, and celebrate the fresh start. Call (815) 399-4600 to reserve.'
   }
 ];
 
