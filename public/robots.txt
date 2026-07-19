@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://just-enuff-cabaret-rockford-website.pages.dev/sitemap-index.xml
+Sitemap: https://justenuffcabaret.com/sitemap-index.xml

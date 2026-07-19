@@ -1,1 +1,31 @@
-/hiring /apply 301
+# Legacy URLs from the previous website.
+# Google still has these indexed; without these rules they hit the 404 page.
+# (Old slug on the left, new page on the right.)
+
+/entertainers      /dancers   301
+/entertainers/*    /dancers   301
+/team              /dancers   301
+/team/*            /dancers   301
+/packages          /vip       301
+/packages/*        /vip       301
+/our-events        /events    301
+/our-events/*      /events    301
+/drinks-menu       /menu      301
+/drinks-menu/*     /menu      301
+/food              /menu      301
+/food/*            /menu      301
+/shop              /          301
+/shop/*            /          301
+/hiring            /apply     301
+/hiring/*          /apply     301
+
+# Normalize trailing-slash versions of current pages
+/club/       /club      301
+/dancers/    /dancers   301
+/events/     /events    301
+/vip/        /vip       301
+/menu/       /menu      301
+/gallery/    /gallery   301
+/faqs/       /faqs      301
+/contact/    /contact   301
+/apply/      /apply     301
