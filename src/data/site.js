@@ -57,7 +57,7 @@ export const dancers = [
   { name: 'April', image: '/images/dancers/april.jpg' },
   { name: 'Chanel', image: '/images/dancers/chanel.jpg' },
   { name: 'Lacey', image: '/images/dancers/lacey.jpg' },
-  { name: 'Lena', image: '/images/dancers/lena.jpg' },
+  { name: 'Kimberly', image: '/images/dancers/kimberly.jpg' },
   { name: 'Ivy', image: '/images/dancers/ivy.jpg' },
   { name: 'Paris', image: '/images/dancers/paris.jpg' },
   { name: 'Coco', image: '/images/dancers/coco.jpg' },
