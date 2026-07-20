@@ -77,11 +77,14 @@ export const dancers = [
 // Optional per-event fields:
 //   price: 10      -> shows "$10 admission" in Google event listings (use 0 for free entry)
 //   (leave price off if cover is undecided; Google will simply omit pricing)
+//   fbUrl: '...'   -> adds an "RSVP on Facebook" link to the event card + links the
+//                     Facebook event in Google's event data
 export const events = [
   {
     title: 'Amateur Dance Contest',
     date: '2026-08-12',
     price: 10,
+    fbUrl: 'https://www.facebook.com/share/1LnWC2uTNv/',
     desc: 'Think you have what it takes? Compete for cash prizes: $250 for 1st place, $150 for 2nd, and $100 for 3rd. DM us on Instagram or Facebook @justenuffrockford to enter. 21+, full bar, please drink responsibly.',
     image: '/images/events/amateur-dance-contest.jpg'
   }
