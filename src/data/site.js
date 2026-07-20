@@ -74,10 +74,14 @@ export const dancers = [
 //         site the day after their date passes. No need to delete old ones,
 //         but feel free to clean up this list occasionally.
 //   desc: shown under the flyer and used for SEO event listings.
+// Optional per-event fields:
+//   price: 10      -> shows "$10 admission" in Google event listings (use 0 for free entry)
+//   (leave price off if cover is undecided; Google will simply omit pricing)
 export const events = [
   {
     title: 'Amateur Dance Contest',
     date: '2026-08-12',
+    price: 10,
     desc: 'Think you have what it takes? Compete for cash prizes: $250 for 1st place, $150 for 2nd, and $100 for 3rd. DM us on Instagram or Facebook @justenuffrockford to enter. 21+, full bar, please drink responsibly.',
     image: '/images/events/amateur-dance-contest.jpg'
   }

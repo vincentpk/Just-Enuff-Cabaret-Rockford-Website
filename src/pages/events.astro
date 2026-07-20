@@ -17,16 +17,43 @@ function formatDate(iso) {
   });
 }
 
-// SEO: schema.org Event listings for Google event search results
+// SEO: schema.org Event listings for Google event search results.
+// Doors 4 PM; events run until close at 2 AM the following morning.
+// Rockford is US Central time: CDT (-05:00) during daylight saving, CST (-06:00) otherwise.
+function centralOffset(isoDate) {
+  const tz = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'America/Chicago', timeZoneName: 'short'
+  }).formatToParts(new Date(isoDate + 'T12:00:00Z')).find((p) => p.type === 'timeZoneName')?.value;
+  return tz === 'CDT' ? '-05:00' : '-06:00';
+}
+function nextDay(isoDate) {
+  const d = new Date(isoDate + 'T12:00:00Z');
+  d.setUTCDate(d.getUTCDate() + 1);
+  return d.toISOString().slice(0, 10);
+}
 const eventSchemas = upcoming.map((e) => ({
   '@context': 'https://schema.org',
   '@type': 'Event',
   name: e.title,
   description: e.desc,
-  startDate: e.date,
+  startDate: `${e.date}T16:00:00${centralOffset(e.date)}`,
+  endDate: `${nextDay(e.date)}T02:00:00${centralOffset(e.date)}`,
   eventStatus: 'https://schema.org/EventScheduled',
   eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
   ...(e.image ? { image: new URL(e.image, Astro.site).href } : {}),
+  performer: { '@type': 'PerformingGroup', name: 'Just Enuff Cabaret Entertainers' },
+  ...(typeof e.price === 'number'
+    ? {
+        offers: {
+          '@type': 'Offer',
+          price: e.price,
+          priceCurrency: 'USD',
+          availability: 'https://schema.org/InStock',
+          url: new URL('/events', Astro.site).href,
+          validFrom: e.date
+        }
+      }
+    : {}),
   location: {
     '@type': 'NightClub',
     name: business.name,
