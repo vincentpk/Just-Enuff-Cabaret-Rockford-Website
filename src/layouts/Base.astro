@@ -88,6 +88,7 @@ const socialIcons = {
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
+    {cleanPath === '/' && <link rel="preload" as="image" href="/videos/hero-poster.jpg" />}
     <link rel="icon" href="/favicon.ico" sizes="48x48" />
     <link rel="icon" type="image/png" href="/images/favicon-96.png" sizes="96x96" />
     <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
