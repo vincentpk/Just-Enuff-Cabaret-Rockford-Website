@@ -26,6 +26,13 @@ export const business = {
     'https://www.google.com/maps/dir/?api=1&destination=Just+Enuff+Cabaret%2C+1609+S+Alpine+Rd%2C+Rockford%2C+IL+61108',
   mapsEmbed:
     'https://www.google.com/maps?q=Just+Enuff+Cabaret+1609+S+Alpine+Rd+Rockford+IL+61108&output=embed',
+  // 2026 ED Award nomination. Update the category/label if we win, or delete this
+  // whole block when the awards wrap to remove the homepage callout and schema.
+  award: {
+    label: '2026 ED Award Nominee',
+    category: 'Small Club of the Year (Central Region)',
+    voteUrl: 'https://theedawards.com/'
+  },
   // Used in footer links and SEO structured data (sameAs)
   socialLinks: [
     { label: 'Instagram', url: 'https://www.instagram.com/justenuffrockford/' },

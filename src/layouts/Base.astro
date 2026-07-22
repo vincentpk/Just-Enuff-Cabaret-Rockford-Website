@@ -61,6 +61,7 @@ const businessSchema = {
   areaServed: ['Rockford IL', 'Loves Park IL', 'Machesney Park IL', 'Belvidere IL', 'Rockton IL',
     'Beloit WI', 'Janesville WI', 'Chicago IL', 'Elgin IL', 'Aurora IL', 'DeKalb IL',
     'Lake Geneva WI', 'Madison WI', 'Milwaukee WI'],
+  ...(business.award ? { award: `${business.award.label}, ${business.award.category}` } : {}),
   ...(business.socials.length ? { sameAs: business.socials } : {})
 };
 
