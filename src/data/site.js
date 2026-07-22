@@ -31,7 +31,8 @@ export const business = {
   award: {
     label: '2026 ED Award Nominee',
     category: 'Small Club of the Year (Central Region)',
-    voteUrl: 'https://theedawards.com/'
+    voteUrl: 'https://theedawards.com/',
+    announcementUrl: 'https://exoticdancer.com/the-2026-ed-award-club-nominations-are-announced/'
   },
   // Used in footer links and SEO structured data (sameAs)
   socialLinks: [

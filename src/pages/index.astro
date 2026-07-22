@@ -64,7 +64,9 @@ const featuredPackages = packages.slice(0, 3);
           <h2 class="section-title" style="margin-top:0.4rem;">Nominated: <em>Small Club of the Year</em></h2>
           <div class="rule"></div>
           <p class="lead" style="max-width:660px;margin:0 auto;">
-            Just Enuff Cabaret is a {business.award.label} for {business.award.category},
+            Just Enuff Cabaret is a {business.award.announcementUrl ? (
+              <a href={business.award.announcementUrl} target="_blank" rel="noopener" style="color:var(--gold-light);">{business.award.label}</a>
+            ) : business.award.label} for {business.award.category},
             recognized among the top clubs in the Midwest. Help us bring the title home to Rockford.
           </p>
           <div class="hero-btns" style="margin-top:1.8rem;">
