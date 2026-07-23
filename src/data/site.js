@@ -104,7 +104,8 @@ export const events = [
 
 // Gallery - drop photos into /public/images/gallery/ and list them here.
 export const galleryImages = [
-  { src: '/images/gallery/gallery-1.jpg', alt: 'Inside Just Enuff Cabaret gentlemen\'s club in Rockford, IL' }
+  { src: '/images/gallery/gallery-1.jpg', alt: 'Inside Just Enuff Cabaret gentlemen\'s club in Rockford, IL' },
+  { src: '/images/gallery/heather.jpg', alt: 'Heather, bartender at Just Enuff Cabaret pouring bottle service in Rockford, IL' }
 ];
 
 export const packages = [
