@@ -50,7 +50,7 @@ export async function onRequest(context) {
 
     const reviews = (d.reviews || [])
       .filter((r) => (r.rating || 0) >= 4 && r.text && r.text.text)
-      .slice(0, 6)
+      .slice(0, 4)
       .map((r) => ({
         author: r.authorAttribution?.displayName || 'Google user',
         photo: r.authorAttribution?.photoUri || '',
