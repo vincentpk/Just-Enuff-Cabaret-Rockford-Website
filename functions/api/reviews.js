@@ -9,7 +9,7 @@
 // times a day no matter how many visitors hit the page. Only reviews rated
 // 4 stars or higher are returned.
 
-const CACHE_KEY = 'https://cache.internal/jec-google-reviews-v2';
+const CACHE_KEY = 'https://cache.internal/jec-google-reviews-v3';
 const TTL = 21600; // 6 hours
 const QUERY = 'Just Enuff Cabaret 1609 S Alpine Rd Rockford IL 61108';
 
@@ -74,6 +74,8 @@ export async function onRequest(context) {
 
 function json(obj, status = 200, ttl = 0) {
   const headers = { 'content-type': 'application/json' };
-  if (ttl) headers['cache-control'] = `public, max-age=${ttl}, s-maxage=${ttl}`;
+  // Browsers cache only briefly (10 min) so layout/count tweaks show fast;
+  // Cloudflare's edge cache holds the full TTL so Google is barely called.
+  if (ttl) headers['cache-control'] = `public, max-age=600, s-maxage=${ttl}`;
   return new Response(JSON.stringify(obj), { status, headers });
 }
