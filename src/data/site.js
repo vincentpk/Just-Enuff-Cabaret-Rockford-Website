@@ -47,6 +47,19 @@ export const business = {
   }
 };
 
+// Weekday happy hour specials (shown as a homepage band + on the menu page).
+// Edit prices/items here, or delete this block to remove the banner everywhere.
+export const happyHour = {
+  days: 'Monday to Friday',
+  time: '4 PM to 6 PM',
+  items: [
+    { name: 'Whole Pizza', price: '$1' },
+    { name: 'Domestic Beers', price: '$4' },
+    { name: 'Select Shots', price: '$5' },
+    { name: 'Imported Beers', price: '$5' }
+  ]
+};
+
 // Nearby cities we want to rank for (used in copy + directions)
 export const serviceAreas = [
   { city: 'Chicago, IL', drive: '~90 min via I-90 W', desc: 'Take I-90 West toward Rockford, exit at US-20 W / S Alpine Rd.' },

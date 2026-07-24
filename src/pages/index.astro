@@ -1,7 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import PhotoSlot from '../components/PhotoSlot.astro';
-import { business, dancers, packages, serviceAreas } from '../data/site.js';
+import { business, dancers, packages, serviceAreas, happyHour } from '../data/site.js';
 
 const featuredDancers = dancers.slice(0, 3);
 const featuredPackages = packages.slice(0, 3);
@@ -36,6 +36,24 @@ const featuredPackages = packages.slice(0, 3);
       </div>
     </div>
   </div>
+
+  {happyHour && (
+    <section style="padding:2.6rem 1.2rem;border-top:1px solid var(--gold);border-bottom:1px solid var(--gold);background:linear-gradient(180deg,rgba(200,16,46,0.12),rgba(201,168,76,0.06));">
+      <div class="inner" style="text-align:center;">
+        <span class="eyebrow" style="color:var(--gold-light);">Weekday Happy Hour</span>
+        <h2 class="section-title" style="margin:0.3rem 0 0.2rem;">{happyHour.days} · <em style="white-space:nowrap;">{happyHour.time}</em></h2>
+        <div class="rule"></div>
+        <div class="grid-4" style="margin-top:1.6rem;">
+          {happyHour.items.map((it) => (
+            <div>
+              <div style="font-family:'Bebas Neue',sans-serif;letter-spacing:0.04em;color:var(--gold-light);font-size:2.4rem;line-height:1;">{it.price}</div>
+              <div style="font-family:'Playfair Display',serif;color:var(--cream);font-size:1.05rem;margin-top:0.3rem;">{it.name}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
 
   <section>
     <div class="inner-sm" style="text-align:center;">
