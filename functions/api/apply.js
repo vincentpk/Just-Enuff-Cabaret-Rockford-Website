@@ -113,12 +113,12 @@ export async function onRequestPost({ request, env }) {
 
   const mail = {
     message: {
-      subject: `Job Application: ${data.position} - ${data.firstName} ${data.lastName}`,
+      subject: `New Application: ${data.position} - ${data.firstName} ${data.lastName}`,
       body: {
         contentType: 'HTML',
         content:
-          `<h2 style="margin:0 0 4px;">New Job Application</h2>` +
-          `<p style="margin:0 0 16px;color:#666;">Submitted via justenuffcabaret.com hiring form</p>` +
+          `<h2 style="margin:0 0 4px;">New Application</h2>` +
+          `<p style="margin:0 0 16px;color:#666;">Submitted via the justenuffcabaret.com application form</p>` +
           `<table style="border-collapse:collapse;font-family:Arial,sans-serif;font-size:14px;">${rows}</table>` +
           `<p style="margin-top:16px;color:#666;font-size:12px;">Reply directly to this email to reach the applicant.</p>`
       },
