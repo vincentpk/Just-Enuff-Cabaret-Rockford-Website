@@ -18,6 +18,16 @@
 /shop/*            /          301
 /hiring            /apply     301
 /hiring/*          /apply     301
+/privacy-policy/   /privacy-policy  301
+
+# Old WordPress media + leftover section URLs (retire them faster)
+/wp-content/*      /          301
+/author/*          /          301
+/tag/*             /          301
+/portfolio/*       /          301
+/typography        /          301
+/contact-dancing   /contact   301
+/locations-dancing /contact   301
 
 # Normalize trailing-slash versions of current pages
 /club/       /club      301

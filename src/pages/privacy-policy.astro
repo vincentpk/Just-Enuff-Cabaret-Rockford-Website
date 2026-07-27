@@ -1,0 +1,102 @@
+---
+import Base from '../layouts/Base.astro';
+import { business } from '../data/site.js';
+
+const updated = 'July 27, 2026';
+---
+
+<Base
+  title="Privacy Policy | Just Enuff Cabaret, Rockford IL"
+  description="How Just Enuff Cabaret collects, uses, and protects information submitted through justenuffcabaret.com, including our application form."
+>
+  <div class="page-hero">
+    <span class="eyebrow">Legal</span>
+    <h1 class="page-title">Privacy <em>Policy</em></h1>
+    <div class="rule"></div>
+    <p class="lead">Last updated {updated}</p>
+  </div>
+
+  <section>
+    <div class="inner-sm" style="font-family:'Cormorant Garamond',serif;color:var(--grey);font-size:1.1rem;line-height:1.7;">
+      <p>
+        This policy explains what information {business.name} collects through
+        justenuffcabaret.com, how we use it, and the choices you have. By using this
+        site you agree to this policy.
+      </p>
+
+      <h2 style="font-family:'Playfair Display',serif;color:var(--gold-light);font-size:1.4rem;margin:2rem 0 0.6rem;">Age Requirement</h2>
+      <p>
+        This site and our venue are intended for adults 21 and older. We do not knowingly
+        collect information from anyone under 21. Entry requires a valid government-issued
+        photo ID.
+      </p>
+
+      <h2 style="font-family:'Playfair Display',serif;color:var(--gold-light);font-size:1.4rem;margin:2rem 0 0.6rem;">Information We Collect</h2>
+      <p>
+        <strong style="color:var(--cream);">Information you give us.</strong> If you submit our
+        application form, we collect the details you provide: name, phone number, email address,
+        date of birth, city and state, position of interest, prior experience, anything you write
+        about yourself, and the photo you upload. We use this only to review and respond to your
+        application.
+      </p>
+      <p>
+        <strong style="color:var(--cream);">Information collected automatically.</strong> Our
+        hosting and security provider (Cloudflare) processes standard technical data such as IP
+        address, browser type, and pages requested in order to serve the site and protect it from
+        abuse. We do not run advertising trackers on this site.
+      </p>
+      <p>
+        <strong style="color:var(--cream);">Age verification.</strong> When you confirm you are 21
+        or older, that confirmation is stored locally in your own browser so we do not ask again.
+        It is not transmitted to us.
+      </p>
+
+      <h2 style="font-family:'Playfair Display',serif;color:var(--gold-light);font-size:1.4rem;margin:2rem 0 0.6rem;">How We Use Information</h2>
+      <p>
+        We use the information you submit to evaluate applications, contact you about your
+        application or inquiry, operate and secure the website, and comply with legal
+        obligations. We do not sell your personal information.
+      </p>
+
+      <h2 style="font-family:'Playfair Display',serif;color:var(--gold-light);font-size:1.4rem;margin:2rem 0 0.6rem;">Third-Party Services</h2>
+      <p>
+        We use a small number of service providers to operate this site: Cloudflare (hosting,
+        security), Microsoft 365 (email delivery of application submissions), and Google (embedded
+        map and publicly available Google reviews shown on our site). These providers process data
+        according to their own privacy policies.
+      </p>
+
+      <h2 style="font-family:'Playfair Display',serif;color:var(--gold-light);font-size:1.4rem;margin:2rem 0 0.6rem;">Data Retention &amp; Security</h2>
+      <p>
+        Application materials are retained only as long as needed for hiring purposes and
+        recordkeeping. We take reasonable measures to protect information, though no method of
+        transmission over the internet is completely secure.
+      </p>
+
+      <h2 style="font-family:'Playfair Display',serif;color:var(--gold-light);font-size:1.4rem;margin:2rem 0 0.6rem;">Your Choices</h2>
+      <p>
+        You may request that we delete the application information you submitted by contacting us
+        at <a href={`mailto:${business.email}`} style="color:var(--gold);">{business.email}</a>.
+        You can clear the age-verification setting at any time by clearing your browser data.
+      </p>
+
+      <h2 style="font-family:'Playfair Display',serif;color:var(--gold-light);font-size:1.4rem;margin:2rem 0 0.6rem;">Changes to This Policy</h2>
+      <p>
+        We may update this policy from time to time. The date at the top reflects the most recent
+        revision.
+      </p>
+
+      <h2 style="font-family:'Playfair Display',serif;color:var(--gold-light);font-size:1.4rem;margin:2rem 0 0.6rem;">Contact</h2>
+      <p>
+        {business.name}<br />
+        {business.address.street}, {business.address.city}, {business.address.state} {business.address.zip}<br />
+        <a href={business.phoneHref} style="color:var(--gold);">{business.phone}</a> ·
+        <a href={`mailto:${business.email}`} style="color:var(--gold);"> {business.email}</a>
+      </p>
+
+      <p style="margin-top:2rem;font-size:0.95rem;color:var(--grey);">
+        This page is provided for general informational purposes and is not legal advice.
+      </p>
+    </div>
+  </section>
+</Base>
