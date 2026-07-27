@@ -269,6 +269,9 @@ const featuredPackages = packages.slice(0, 3);
     if (v) {
       v.muted = true;
       v.defaultMuted = true;
+      // Only reveal the video once it truly starts playing; until then the
+      // poster image shows and no play-button overlay can appear.
+      v.addEventListener('playing', () => { v.style.opacity = '1'; });
       const tryPlay = () => { v.play().catch(() => {}); };
       tryPlay();
       ['touchstart', 'click'].forEach((ev) =>
