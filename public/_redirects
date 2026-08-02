@@ -22,12 +22,29 @@
 
 # Old WordPress media + leftover section URLs (retire them faster)
 /wp-content/*      /          301
+/wp-includes/*     /          301
 /author/*          /          301
 /tag/*             /          301
 /portfolio/*       /          301
 /typography        /          301
 /contact-dancing   /contact   301
 /locations-dancing /contact   301
+
+# Old WooCommerce shop URLs. The bachelor-party "products" map cleanly to VIP
+# packages, so point them there rather than letting them 404.
+/product/*           /vip       301
+/product-category/*  /vip       301
+/services/*          /club      301
+/event/*             /events    301
+/blog-list           /          301
+/blog-list/*         /          301
+
+# Old WordPress blog posts (pole-dancing articles). No equivalent content, so
+# these land on the entertainer application page, the closest useful match.
+/the-types-of-girls-youll-meet-at-pole-dancing-class      /apply  301
+/some-classic-beginner-pole-moves-for-new-dancers         /apply  301
+/common-mistakes-made-by-beginner-pole-dancers            /apply  301
+/a-quick-warm-up-for-pole-dancers-of-all-levels           /apply  301
 
 # Normalize trailing-slash versions of current pages
 /club/       /club      301
