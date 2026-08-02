@@ -91,7 +91,8 @@ export const dancers = [
   { name: 'Willow', image: '/images/dancers/willow.jpg' },
   { name: 'Rosé', image: '/images/dancers/rose.jpg' },
   { name: 'Juliet', image: '/images/dancers/juliet.jpg' },
-  { name: 'Nyah', image: '/images/dancers/nyah.jpg' }
+  { name: 'Nyah', image: '/images/dancers/nyah.jpg' },
+  { name: 'Gianna', image: '/images/dancers/gianna.jpg' }
 ];
 
 // Events - drop flyers (1080 × 1440 px, portrait) into /public/images/events/
