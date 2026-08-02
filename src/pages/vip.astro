@@ -27,6 +27,18 @@ const linkPhone = (text) =>
 
   <section>
     <div class="inner">
+      <div class="inner-sm" style="padding:0 0 2.5rem;">
+        <p class="lead">
+          Every package below includes premium seating in our VIP section overlooking the main
+          stage and a waived cover charge for your group, so nobody in your party pays at the
+          door. Packages are the easiest way to run a bachelor party, birthday, or any group
+          night out: you reserve once, your table is waiting when you arrive, and a dedicated
+          cocktail server handles the rest. Pair any package with a bottle from our
+          <a href="/menu" style="color:var(--gold);"> bottle service menu</a>, and meet the
+          <a href="/dancers" style="color:var(--gold);"> entertainers</a> who perform seven nights
+          a week. Weekend VIP seating fills up fast, so call a few days ahead.
+        </p>
+      </div>
       <div class="grid-2">
         {packages.map((p) => (
           <div class={`card pkg ${p.featured ? 'featured' : ''}`}>

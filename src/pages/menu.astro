@@ -1,11 +1,49 @@
 ---
 import Base from '../layouts/Base.astro';
 import { business, bottleMenu, foodMenu, happyHour } from '../data/site.js';
+
+// Menu structured data so search engines can read our drink and food lists
+// as an actual menu (eligible for menu rich results) rather than plain text.
+const priceNum = (p) => Number(String(p).replace(/[^0-9.]/g, '')) || undefined;
+const toSection = (cat) => ({
+  '@type': 'MenuSection',
+  name: cat.category,
+  hasMenuItem: cat.items.map((it) => ({
+    '@type': 'MenuItem',
+    name: it.name,
+    ...(it.desc ? { description: it.desc } : {}),
+    offers: { '@type': 'Offer', price: priceNum(it.price), priceCurrency: 'USD' }
+  }))
+});
+
+const menuSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Menu',
+  name: `${business.name} Menu & Bottle Service`,
+  url: new URL('/menu', Astro.site).href,
+  inLanguage: 'en-US',
+  hasMenuSection: [
+    {
+      '@type': 'MenuSection',
+      name: 'Bottle Service',
+      description: 'Premium champagne, rosé, wine, and tequila available seven nights a week.',
+      hasMenuSection: bottleMenu.map(toSection)
+    },
+    {
+      '@type': 'MenuSection',
+      name: 'Food Menu',
+      description:
+        'Late-night kitchen served Friday through Sunday. Pizza and mozzarella sticks available every night.',
+      hasMenuSection: foodMenu.map(toSection)
+    }
+  ]
+};
 ---
 
 <Base
   title="Menu & Bottle Service | Just Enuff Cabaret, Rockford IL"
   description={`Bottle service at Just Enuff Cabaret, Rockford IL: Veuve, Dom Perignon, Ace of Spades & Clase Azul. Late-night wings, pizza & cheesesteaks.`}
+  schema={menuSchema}
 >
   <div class="page-hero">
     <span class="eyebrow">Dining &amp; Drinks</span>
@@ -35,7 +73,7 @@ import { business, bottleMenu, foodMenu, happyHour } from '../data/site.js';
   {happyHour && (
     <section style="padding-top:0;">
       <div class="inner-sm">
-        <div style="border:1px solid var(--gold);border-radius:8px;padding:2rem 1.4rem;text-align:center;background:linear-gradient(180deg,rgba(200,16,46,0.12),rgba(201,168,76,0.06));">
+        <div id="happy-hour" style="border:1px solid var(--gold);border-radius:8px;padding:2rem 1.4rem;text-align:center;background:linear-gradient(180deg,rgba(200,16,46,0.12),rgba(201,168,76,0.06));">
           <span class="eyebrow" style="color:var(--gold-light);">Weekday Happy Hour</span>
           <h2 class="section-title" style="margin:0.3rem 0 0.2rem;font-size:1.7rem;">{happyHour.days} · <em style="white-space:nowrap;">{happyHour.time}</em></h2>
           <div class="rule"></div>
@@ -59,6 +97,17 @@ import { business, bottleMenu, foodMenu, happyHour } from '../data/site.js';
         <h2 class="section-title">Bottle <em>Service</em></h2>
         <div class="rule"></div>
       </div>
+      <p class="lead" style="margin-bottom:2rem;">
+        Bottle service is the centerpiece of a night in our
+        <a href="/vip" style="color:var(--gold);">VIP section</a> overlooking the stage. Every
+        bottle arrives with a dedicated presentation, mixers, and glassware for your table, and
+        our cocktail servers keep the table stocked all night. We pour the labels people ask for
+        by name, from Veuve Clicquot and Moët &amp; Chandon up to Dom Pérignon and Ace of Spades,
+        plus Clase Azul Reposado for the tequila drinkers. Prices below include sales tax, so what
+        you see is what you pay. Call
+        <a href={business.phoneHref} style="color:var(--gold);">{business.phone}</a> to reserve a
+        bottle ahead of a busy weekend.
+      </p>
       {bottleMenu.map((cat) => (
         <div class="menu-cat">
           <h3>{cat.category}</h3>
@@ -81,6 +130,14 @@ import { business, bottleMenu, foodMenu, happyHour } from '../data/site.js';
         <h2 class="section-title">Food <em>Menu</em></h2>
         <div class="rule"></div>
       </div>
+      <p class="lead" style="margin-bottom:2rem;">
+        Our kitchen runs late Friday through Sunday, so you do not have to leave for food and
+        come back. Wings, hand-tossed pizza, Philly cheesesteaks, street tacos, and burgers all
+        come out hot until close. Pizza and mozzarella sticks are available every night of the
+        week, including weeknights during our
+        {' '}<a href="/menu#happy-hour" style="color:var(--gold);">$1 pizza happy hour</a> from 4 PM
+        to 6 PM, Monday through Friday.
+      </p>
       {foodMenu.map((cat) => (
         <div class="menu-cat">
           <h3>{cat.category}</h3>

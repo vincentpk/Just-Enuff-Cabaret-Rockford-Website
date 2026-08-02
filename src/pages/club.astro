@@ -2,30 +2,32 @@
 import Base from '../layouts/Base.astro';
 import { business } from '../data/site.js';
 
+// `desc` may contain inline links to related pages: contextual internal links
+// help search engines understand how our pages relate to each other.
 const features = [
   {
     title: 'Main Stage & Showroom',
-    desc: 'A full stage with premium lighting and sound, surrounded by stage-side seating so you never miss a moment of the show.'
+    desc: 'A full stage with premium lighting and sound, surrounded by stage-side seating so you never miss a moment of the show. Our <a href="/dancers">entertainers</a> perform nightly.'
   },
   {
     title: 'VIP Seating Above the Stage',
-    desc: 'A dedicated VIP section overlooking the stage, reserved for bottle service, celebrations, and a more exclusive night out.'
+    desc: 'A dedicated VIP section overlooking the stage, reserved for bottle service, celebrations, and a more exclusive night out. See our <a href="/vip">VIP packages</a>.'
   },
   {
     title: 'Full Bar & Bottle Service',
-    desc: 'Premium spirits, champagne, and cocktails, from house favorites to Dom Pérignon and Clase Azul.'
+    desc: 'Premium spirits, champagne, and cocktails, from house favorites to Dom Pérignon and Clase Azul. Browse the full <a href="/menu">bottle service menu</a>.'
   },
   {
     title: 'Late-Night Kitchen',
-    desc: 'A full food menu served late Friday through Sunday: wings, pizza, Philly cheesesteaks, street tacos, and more. Pizza and mozzarella sticks are available every night of the week.'
+    desc: 'A full <a href="/menu">food menu</a> served late Friday through Sunday: wings, pizza, Philly cheesesteaks, street tacos, and more. Pizza and mozzarella sticks are available every night of the week.'
   },
   {
     title: 'World-Class Entertainers',
-    desc: 'A rotating roster of beautiful, professional entertainers performing seven nights a week.'
+    desc: 'A rotating roster of beautiful, professional <a href="/dancers">entertainers</a> performing seven nights a week. We are always <a href="/apply">hiring</a>.'
   },
   {
     title: 'Free On-Site Parking',
-    desc: 'A private, free parking lot right on S Alpine Rd. No meters, no garages, no hassle.'
+    desc: 'A private, free parking lot right on S Alpine Rd. No meters, no garages, no hassle. See <a href="/contact">directions and parking</a>.'
   }
 ];
 ---
@@ -46,11 +48,21 @@ const features = [
 
   <section>
     <div class="inner">
+      <div class="section-header">
+        <span class="eyebrow">What to Expect</span>
+        <h2 class="section-title">The <em>Venue</em></h2>
+        <div class="rule"></div>
+        <p class="lead">
+          Just Enuff Cabaret has been Rockford's home for upscale adult nightlife for years,
+          and we have built the room around one idea: a big-city night out without the
+          big-city drive, cover, or attitude. Here is what you will find inside.
+        </p>
+      </div>
       <div class="grid-3">
         {features.map((f) => (
           <div class="card">
             <h3 style="font-family:'Playfair Display',serif;color:var(--gold-light);font-size:1.35rem;margin-bottom:0.6rem;">{f.title}</h3>
-            <p style="color:var(--grey);">{f.desc}</p>
+            <p style="color:var(--grey);" set:html={f.desc} />
           </div>
         ))}
       </div>
