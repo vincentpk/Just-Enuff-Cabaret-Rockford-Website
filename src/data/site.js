@@ -129,6 +129,13 @@ export const events = [
     fbUrl: 'https://www.facebook.com/share/1LnWC2uTNv/',
     desc: 'Think you have what it takes? Compete for cash prizes: $250 for 1st place, $150 for 2nd, and $100 for 3rd. DM us on Instagram or Facebook @justenuffrockford to enter. 21+, full bar, please drink responsibly.',
     image: '/images/events/amateur-dance-contest.jpg'
+  },
+  {
+    title: 'Body Paint Night',
+    date: '2026-09-19',
+    fbUrl: 'https://www.facebook.com/share/1BXwdoGmNK/',
+    desc: 'Come see your favorite entertainers covered in paint. One night only, Saturday September 19th at Just Enuff Cabaret. 21+, full bar, please drink responsibly.',
+    image: '/images/events/body-paint-night.jpg'
   }
 ];
 
