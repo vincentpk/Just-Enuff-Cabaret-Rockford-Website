@@ -74,7 +74,9 @@ export const serviceAreas = [
 
 // Dancers - add a photo (1080 × 1440 px, portrait) to /public/images/dancers/
 // and set `image` to its path. Leave image: null to show a "coming soon" slot.
-export const dancers = [
+// Order here does not matter: the roster is sorted alphabetically automatically
+// (see `dancers` below). Just add new entertainers anywhere in this list.
+const dancerRoster = [
   { name: 'April', image: '/images/dancers/april.jpg' },
   { name: 'Chanel', image: '/images/dancers/chanel.jpg' },
   { name: 'Lacey', image: '/images/dancers/lacey.jpg' },
@@ -91,9 +93,21 @@ export const dancers = [
   { name: 'Willow', image: '/images/dancers/willow.jpg' },
   { name: 'Rosé', image: '/images/dancers/rose.jpg' },
   { name: 'Juliet', image: '/images/dancers/juliet.jpg' },
-  { name: 'Nyah', image: '/images/dancers/nyah.jpg' },
-  { name: 'Gianna', image: '/images/dancers/gianna.jpg' }
+  { name: 'Niya', image: '/images/dancers/niya.jpg' },
+  { name: 'Gianna', image: '/images/dancers/gianna.jpg' },
+  { name: 'Jasmine', image: '/images/dancers/jasmine.jpg' }
 ];
+
+// Full roster, sorted A-Z (accent-aware, so Rosé sorts under R).
+export const dancers = [...dancerRoster].sort((a, b) =>
+  a.name.localeCompare(b.name, 'en', { sensitivity: 'base' })
+);
+
+// The three shown on the homepage. Edit these names to change who is featured.
+const featuredNames = ['April', 'Chanel', 'Lacey'];
+export const featuredDancers = featuredNames
+  .map((n) => dancerRoster.find((d) => d.name === n))
+  .filter(Boolean);
 
 // Events - drop flyers (1080 × 1440 px, portrait) into /public/images/events/
 // and add them here.
