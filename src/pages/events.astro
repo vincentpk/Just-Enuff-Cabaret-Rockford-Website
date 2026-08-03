@@ -100,9 +100,9 @@ const eventSchemas = upcoming.map((e) => ({
       {upcoming.length > 0 ? (
         <div class="grid-3" id="eventGrid">
           {upcoming.map((e) => (
-            <div class="card" style="padding:0.9rem;" data-event-date={e.date}>
+            <div class="card" style="padding:0.9rem;display:flex;flex-direction:column;height:100%;" data-event-date={e.date}>
               <PhotoSlot image={e.image} alt={`${e.title} at Just Enuff Cabaret, Rockford IL, ${formatDate(e.date)}`} label="Flyer Coming Soon" />
-              <div class="card-name">
+              <div class="card-name" style="display:flex;flex-direction:column;flex:1;">
                 {e.title}
                 <div style="font-size:0.95rem;color:var(--gold-light);font-family:'Bebas Neue',sans-serif;letter-spacing:0.15em;margin-top:0.2rem;">
                   {formatDate(e.date)}
@@ -114,7 +114,7 @@ const eventSchemas = upcoming.map((e) => ({
                 )}
                 {e.fbUrl && (
                   <a href={e.fbUrl} target="_blank" rel="noopener"
-                    style="display:inline-block;margin-top:0.7rem;font-family:'Bebas Neue',sans-serif;letter-spacing:0.12em;font-size:0.95rem;color:var(--gold);">
+                    style="display:inline-block;margin-top:auto;padding-top:0.9rem;font-family:'Bebas Neue',sans-serif;letter-spacing:0.12em;font-size:0.95rem;color:var(--gold);">
                     RSVP on Facebook &rarr;
                   </a>
                 )}

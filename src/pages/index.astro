@@ -84,10 +84,15 @@ const featuredPackages = packages.slice(0, 3);
             Just Enuff Cabaret is a {business.award.announcementUrl ? (
               <a href={business.award.announcementUrl} target="_blank" rel="noopener" style="color:var(--gold-light);">{business.award.label}</a>
             ) : business.award.label} for {business.award.category},
-            recognized among the top clubs in the Midwest. Help us bring the title home to Rockford.
+            recognized among the top small clubs in the Midwest. Come see why.
           </p>
           <div class="hero-btns" style="margin-top:1.8rem;">
-            <a class="btn btn-gold" href={business.award.voteUrl} target="_blank" rel="noopener">Vote for Us</a>
+            {business.award.voteUrl ? (
+              <a class="btn btn-gold" href={business.award.voteUrl} target="_blank" rel="noopener">Vote for Us</a>
+            ) : business.award.announcementUrl && (
+              <a class="btn btn-gold" href={business.award.announcementUrl} target="_blank" rel="noopener">Read the Announcement</a>
+            )}
+            <a class="btn btn-red" href="/vip">Reserve VIP</a>
           </div>
         </div>
       </div>
