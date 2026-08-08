@@ -71,7 +71,8 @@ export const serviceAreas = [
   { city: 'Madison, WI', drive: '~70 min via I-39/90 S', desc: 'I-39/90 South straight into Rockford.' },
   { city: 'Milwaukee, WI', drive: '~85 min via I-43 & I-90', desc: 'I-43 South to I-90 West toward Rockford.' },
   { city: 'Janesville / Beloit, WI', drive: '~30 min via I-39/90 S', desc: 'Quick trip down I-39/90. Closer than you think.' },
-  { city: 'DeKalb, IL', drive: '~45 min via IL-23 & I-39', desc: 'North on I-39 to US-20 W / Alpine Rd.' }
+  { city: 'DeKalb, IL', drive: '~45 min via IL-23 & I-39', desc: 'North on I-39 to US-20 W / Alpine Rd.' },
+  { city: 'Dixon / Sterling, IL', drive: '~50 min via IL-2 & I-88', desc: 'North on IL-2 along the Rock River, or I-88 East to I-39 North.' }
 ];
 
 // Dancers - add a photo (1080 × 1440 px, portrait) to /public/images/dancers/
@@ -340,5 +341,13 @@ export const faqs = [
   {
     q: 'How do I become an entertainer or join the staff?',
     a: 'Entertainers audition year-round, and we regularly have positions for bartenders, servers, hosts, and security. Fill out the application on our Apply page.'
+  },
+  {
+    q: 'Where is Just Enuff Cabaret located in Illinois?',
+    a: 'Just Enuff Cabaret is in Rockford, Illinois, at 1609 S Alpine Rd, in the northern part of the state about 90 minutes northwest of Chicago. Rockford is the largest city in northern Illinois outside the Chicago metro, and we sit minutes from I-90, I-39, and US-20, which makes us an easy stop for anyone traveling through the region.'
+  },
+  {
+    q: 'What are the best strip clubs in Illinois outside of Chicago?',
+    a: 'Northern Illinois has a handful of adult nightclubs outside the Chicago metro, and Just Enuff Cabaret is among the most established of them. We are a 2026 ED Award nominee for Small Club of the Year in the Central Region, with professional entertainers seven nights a week, premium bottle service, a full late-night kitchen, and free on-site parking. Guests routinely drive in from Chicago, Rockford, DeKalb, Dixon, Elgin, and across the Wisconsin border rather than pay big-city prices.'
   }
 ];
