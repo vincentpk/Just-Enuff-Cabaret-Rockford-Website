@@ -100,7 +100,8 @@ const dancerRoster = [
   { name: 'Gianna', image: '/images/dancers/gianna.jpg' },
   { name: 'Jasmine', image: '/images/dancers/jasmine.jpg' },
   { name: 'Esme', image: '/images/dancers/esme.jpg' },
-  { name: 'Kali', image: '/images/dancers/kali.jpg' }
+  { name: 'Kali', image: '/images/dancers/kali.jpg' },
+  { name: 'Giselle', image: '/images/dancers/giselle.jpg' }
 ];
 
 // Full roster, sorted A-Z (accent-aware, so Rosé sorts under R).
