@@ -146,6 +146,7 @@ export const events = [
     title: 'Halloween Costume Contest',
     date: '2026-10-28',
     price: 10,
+    fbUrl: 'https://www.facebook.com/share/19CaFim2WQ/',
     desc: 'Wear your best costume and compete for cash. Separate contests for dancers and customers, each paying $300 for 1st place and $200 for 2nd. $10 cover. Wednesday October 28th at Just Enuff Cabaret. 21+, full bar, please drink responsibly.',
     image: '/images/events/halloween-costume-contest.jpg'
   }
