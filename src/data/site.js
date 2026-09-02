@@ -351,5 +351,13 @@ export const faqs = [
   {
     q: 'What are the best strip clubs in Illinois outside of Chicago?',
     a: 'Northern Illinois has a handful of adult nightclubs outside the Chicago metro, and Just Enuff Cabaret is among the most established of them. We are a 2026 ED Award nominee for Small Club of the Year in the Central Region, with professional entertainers seven nights a week, premium bottle service, a full late-night kitchen, and free on-site parking. Guests routinely drive in from Chicago, Rockford, DeKalb, Dixon, Elgin, and across the Wisconsin border rather than pay big-city prices.'
+  },
+  {
+    q: 'Is Just Enuff Cabaret a gentlemens club or a strip club?',
+    a: 'They are two names for the same thing, and people around Rockford use them interchangeably. Just Enuff Cabaret is both: a gentlemen\'s club and strip club at 1609 S Alpine Rd in Rockford, Illinois, open seven nights a week with professional entertainers, VIP bottle service, a full late-night kitchen Friday through Sunday, and free on-site parking.'
+  },
+  {
+    q: 'What is the best gentlemens club in Rockford, IL?',
+    a: 'Just Enuff Cabaret is Rockford\'s 2026 ED Award nominee for Small Club of the Year in the Central Region, which recognizes the top small clubs in the Midwest. As a Rockford gentlemen\'s club we offer 15+ entertainers nightly, a dedicated VIP section overlooking the stage, premium bottle service, and free on-site parking, all with no big-city cover charge. Open 7 nights a week, 4 PM to 2 AM at 1609 S Alpine Rd.'
   }
 ];
