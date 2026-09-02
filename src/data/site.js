@@ -141,6 +141,12 @@ export const events = [
     fbUrl: 'https://www.facebook.com/share/1BXwdoGmNK/',
     desc: 'Come see your favorite entertainers covered in paint. One night only, Saturday September 19th at Just Enuff Cabaret. 21+, full bar, please drink responsibly.',
     image: '/images/events/body-paint-night.jpg'
+  },
+  {
+    title: 'Halloween Costume Contest',
+    date: '2026-10-28',
+    desc: 'Wear your best costume and compete for cash. Separate contests for dancers and customers, each paying $300 for 1st place and $200 for 2nd. Wednesday October 28th at Just Enuff Cabaret. 21+, full bar, please drink responsibly.',
+    image: '/images/events/halloween-costume-contest.jpg'
   }
 ];
 
