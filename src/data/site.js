@@ -366,6 +366,6 @@ export const faqs = [
   },
   {
     q: 'What is the best gentlemens club in Rockford, IL?',
-    a: 'Just Enuff Cabaret is Rockford\'s 2026 ED Award nominee for Small Club of the Year in the Central Region, which recognizes the top small clubs in the Midwest. As a Rockford gentlemen\'s club we offer 15+ entertainers nightly, a dedicated VIP section overlooking the stage, premium bottle service, and free on-site parking, all with no big-city cover charge. Open 7 nights a week, 4 PM to 2 AM at 1609 S Alpine Rd.'
+    a: 'Just Enuff Cabaret is Rockford\'s 2026 ED Award nominee for Small Club of the Year in the Central Region, which recognizes the top small clubs in the Midwest. As a Rockford gentlemen\'s club we offer 20+ entertainers nightly, a dedicated VIP section overlooking the stage, premium bottle service, and free on-site parking, all with no big-city cover charge. Open 7 nights a week, 4 PM to 2 AM at 1609 S Alpine Rd.'
   }
 ];
