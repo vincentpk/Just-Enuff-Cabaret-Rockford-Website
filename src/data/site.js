@@ -80,6 +80,7 @@ export const serviceAreas = [
 // Order here does not matter: the roster is sorted alphabetically automatically
 // (see `dancers` below). Just add new entertainers anywhere in this list.
 const dancerRoster = [
+  { name: 'Layla', image: '/images/dancers/layla.jpg' },
   { name: 'April', image: '/images/dancers/april.jpg' },
   { name: 'Chanel', image: '/images/dancers/chanel.jpg' },
   { name: 'Lacey', image: '/images/dancers/lacey.jpg' },
