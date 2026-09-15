@@ -137,7 +137,7 @@ export const events = [
     image: '/images/events/amateur-dance-contest.jpg'
   },
   {
-    title: 'Viva Mexico: Mexican Independence Day',
+    title: 'Mexican Independence Day',
     date: '2026-09-16',
     desc: 'Celebrate Dia de la Independencia with us. $1 pizza all night and $5 micheladas from 4 to 7 PM. Wednesday September 16th at Just Enuff Cabaret. 21+, full bar, please drink responsibly.',
     image: '/images/events/mexican-independence-day.jpg'
