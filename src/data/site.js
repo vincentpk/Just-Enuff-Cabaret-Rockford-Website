@@ -155,9 +155,9 @@ export const events = [
   },
   {
     title: 'Thanksgiving Food Drive',
-    date: '2026-10-16',
-    endDate: '2026-11-15',
-    desc: 'Bring in 3 or more non-perishable food items and your cover is free, every time you donate. For every can or box dropped off, Just Enuff donates $1 to a local Rockford food pantry, and all the food collected goes there too. Most needed: canned goods, soup, pasta, rice, stuffing, and peanut butter. Running October 16th through November 15th. 21+, full bar, please drink responsibly.',
+    date: '2026-10-19',
+    endDate: '2026-11-12',
+    desc: 'Running Mondays through Thursdays, October 19th to November 12th. Bring in 3 or more non-perishable food items and your cover is free any Monday through Thursday you donate. For every can or box dropped off, Just Enuff donates $1 to a local Rockford food pantry, and all the food collected goes there too. Most needed: canned goods, soup, pasta, rice, stuffing, and peanut butter. 21+, full bar, please drink responsibly.',
     image: '/images/events/thanksgiving-food-drive.jpg'
   },
   {
