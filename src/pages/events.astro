@@ -4,17 +4,29 @@ import PhotoSlot from '../components/PhotoSlot.astro';
 import { business, events } from '../data/site.js';
 
 // Build-time filter: drop events whose date has passed.
+// Multi-day events (drives, week-long promos) set an optional `endDate` and
+// stay listed until that date passes, not their start date.
 // (A small client-side script below also hides expired events, so nothing
 // stale shows even if the site hasn't been redeployed in a while.)
 const today = new Date().toISOString().slice(0, 10);
+const lastDay = (e) => e.endDate || e.date;
 const upcoming = events
-  .filter((e) => e.date && e.date >= today)
+  .filter((e) => e.date && lastDay(e) >= today)
   .sort((a, b) => a.date.localeCompare(b.date));
 
 function formatDate(iso) {
   return new Date(iso + 'T12:00:00').toLocaleDateString('en-US', {
     weekday: 'long', month: 'long', day: 'numeric'
   });
+}
+
+// "October 16 to November 15" for a run of days; a single weekday for one night.
+function formatWhen(e) {
+  if (!e.endDate) return formatDate(e.date);
+  const opts = { month: 'long', day: 'numeric' };
+  const a = new Date(e.date + 'T12:00:00').toLocaleDateString('en-US', opts);
+  const b = new Date(e.endDate + 'T12:00:00').toLocaleDateString('en-US', opts);
+  return `${a} to ${b}`;
 }
 
 // SEO: schema.org Event listings for Google event search results.
@@ -37,7 +49,9 @@ const eventSchemas = upcoming.map((e) => ({
   name: e.title,
   description: e.desc,
   startDate: `${e.date}T16:00:00${centralOffset(e.date)}`,
-  endDate: `${nextDay(e.date)}T02:00:00${centralOffset(e.date)}`,
+  endDate: e.endDate
+    ? `${nextDay(e.endDate)}T02:00:00${centralOffset(e.endDate)}`
+    : `${nextDay(e.date)}T02:00:00${centralOffset(e.date)}`,
   eventStatus: 'https://schema.org/EventScheduled',
   eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
   ...(e.image ? { image: new URL(e.image, Astro.site).href } : {}),
@@ -100,12 +114,12 @@ const eventSchemas = upcoming.map((e) => ({
       {upcoming.length > 0 ? (
         <div class="grid-3" id="eventGrid">
           {upcoming.map((e) => (
-            <div class="card" style="padding:0.9rem;display:flex;flex-direction:column;height:100%;" data-event-date={e.date}>
-              <PhotoSlot image={e.image} alt={`${e.title} at Just Enuff Cabaret, Rockford IL, ${formatDate(e.date)}`} label="Flyer Coming Soon" />
+            <div class="card" style="padding:0.9rem;display:flex;flex-direction:column;height:100%;" data-event-date={e.endDate || e.date}>
+              <PhotoSlot image={e.image} alt={`${e.title} at Just Enuff Cabaret, Rockford IL, ${formatWhen(e)}`} label="Flyer Coming Soon" />
               <div class="card-name" style="display:flex;flex-direction:column;flex:1;">
                 {e.title}
                 <div style="font-size:0.95rem;color:var(--gold-light);font-family:'Bebas Neue',sans-serif;letter-spacing:0.15em;margin-top:0.2rem;">
-                  {formatDate(e.date)}
+                  {formatWhen(e)}
                 </div>
                 {e.desc && (
                   <p style="font-size:1rem;color:var(--grey);font-family:'Cormorant Garamond',serif;margin-top:0.6rem;line-height:1.5;text-align:left;">

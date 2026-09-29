@@ -127,6 +127,10 @@ export const featuredDancers = featuredNames
 //   (leave price off if cover is undecided; Google will simply omit pricing)
 //   fbUrl: '...'   -> adds an "RSVP on Facebook" link to the event card + links the
 //                     Facebook event in Google's event data
+//   endDate: '2026-11-15' -> for anything running over multiple days (a drive,
+//                     a week-long promo). The card then reads "October 16 to
+//                     November 15" and the event stays listed until the END
+//                     date passes rather than the start date.
 export const events = [
   {
     title: 'Amateur Dance Contest',
@@ -148,6 +152,13 @@ export const events = [
     fbUrl: 'https://www.facebook.com/share/1BXwdoGmNK/',
     desc: 'Come see your favorite entertainers covered in paint. One night only, Saturday September 19th at Just Enuff Cabaret. 21+, full bar, please drink responsibly.',
     image: '/images/events/body-paint-night.jpg'
+  },
+  {
+    title: 'Thanksgiving Food Drive',
+    date: '2026-10-16',
+    endDate: '2026-11-15',
+    desc: 'Bring in 3 or more non-perishable food items and your cover is free, every time you donate. For every can or box dropped off, Just Enuff donates $1 to a local Rockford food pantry, and all the food collected goes there too. Most needed: canned goods, soup, pasta, rice, stuffing, and peanut butter. Running October 16th through November 15th. 21+, full bar, please drink responsibly.',
+    image: '/images/events/thanksgiving-food-drive.jpg'
   },
   {
     title: 'Halloween Costume Contest',
