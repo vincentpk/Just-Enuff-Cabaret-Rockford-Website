@@ -164,6 +164,7 @@ export const events = [
   {
     title: '1980s Night',
     date: '2026-11-13',
+    fbUrl: 'https://www.facebook.com/share/1C22ePhnEe/',
     desc: 'Neon, big hair, and leg warmers. Retro hits all night long and the whole room dressed for the decade. Come in your best 80s look. Friday November 13th at Just Enuff Cabaret. 21+, full bar, please drink responsibly.',
     image: '/images/events/1980s-night.jpg'
   },
