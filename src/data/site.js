@@ -40,7 +40,7 @@ export const business = {
   socialLinks: [
     { label: 'Instagram', url: 'https://www.instagram.com/justenuffrockford/' },
     { label: 'Facebook', url: 'https://www.facebook.com/share/1CXcczV9Qs/' },
-    { label: 'Snapchat', url: 'https://snapchat.com/t/O1SF3RuI' },
+    { label: 'Snapchat', url: 'https://snapchat.com/t/1hTkMjS7' },
     { label: 'TikTok', url: 'https://www.tiktok.com/@justenuff1609' },
     { label: 'X', url: 'https://x.com/justenuff1609' }
   ],
