@@ -70,7 +70,7 @@ export const serviceAreas = [
   { city: 'Lake Geneva, WI', drive: '~45 min via US-12 & IL-173', desc: 'US-12 South to IL-173 West, then south on I-90 / Alpine Rd.' },
   { city: 'Madison, WI', drive: '~70 min via I-39/90 S', desc: 'I-39/90 South straight into Rockford.' },
   { city: 'Milwaukee, WI', drive: '~85 min via I-43 & I-90', desc: 'I-43 South to I-90 West toward Rockford.' },
-  { city: 'Janesville / Beloit, WI', drive: '~30 min via I-39/90 S', desc: 'Quick trip down I-39/90. Closer than you think.' },
+  { city: 'Beloit / Janesville, WI', drive: '~30 min via I-39/90 S', desc: 'The closest club to southern Wisconsin. Straight down I-39/90, almost all interstate.' },
   { city: 'DeKalb, IL', drive: '~45 min via IL-23 & I-39', desc: 'North on I-39 to US-20 W / Alpine Rd.' },
   { city: 'Dixon / Sterling, IL', drive: '~50 min via IL-2 & I-88', desc: 'North on IL-2 along the Rock River, or I-88 East to I-39 North.' }
 ];
@@ -385,6 +385,14 @@ export const faqs = [
   {
     q: 'What are the best strip clubs in Illinois outside of Chicago?',
     a: 'Northern Illinois has a handful of adult nightclubs outside the Chicago metro, and Just Enuff Cabaret is among the most established of them. We are a 2026 ED Award nominee for Small Club of the Year in the Central Region, with professional entertainers seven nights a week, premium bottle service, a full late-night kitchen, and free on-site parking. Guests routinely drive in from Chicago, Rockford, DeKalb, Dixon, Elgin, and across the Wisconsin border rather than pay big-city prices.'
+  },
+  {
+    q: 'Is there a strip club near Beloit, WI?',
+    a: 'Just Enuff Cabaret is the closest club to Beloit, about 30 minutes straight down I-39/90 at 1609 S Alpine Rd in Rockford, Illinois. Guests come down from Beloit and Janesville most weekends because there is no cover-charge markup, parking is free and on-site, and the kitchen runs late Friday through Sunday. Open 7 nights a week, 4 PM to 2 AM, 21+ with valid ID.'
+  },
+  {
+    q: 'What are the best strip clubs in Wisconsin?',
+    a: 'Just Enuff Cabaret is not in Wisconsin, we are just over the Illinois line, but we are the closest club for much of the southern part of the state and a lot of our regulars drive down. Beloit is about 30 minutes, Janesville about 35, Lake Geneva about 45, Madison about 70 and Milwaukee about 85, nearly all of it interstate. We are a 2026 ED Award nominee for Small Club of the Year in the Central Region, with 20+ entertainers nightly, premium bottle service, a full late-night kitchen and free parking.'
   },
   {
     q: 'Is Just Enuff Cabaret a gentlemens club or a strip club?',
