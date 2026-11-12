@@ -81,6 +81,7 @@ export const serviceAreas = [
 // (see `dancers` below). Just add new entertainers anywhere in this list.
 const dancerRoster = [
   { name: 'Layla', image: '/images/dancers/layla.jpg' },
+  { name: 'Mama Daisey', image: '/images/dancers/mama-daisey.jpg' },
   { name: 'April', image: '/images/dancers/april.jpg' },
   { name: 'Chanel', image: '/images/dancers/chanel.jpg' },
   { name: 'Lacey', image: '/images/dancers/lacey.jpg' },
