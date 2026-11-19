@@ -46,6 +46,16 @@
 /common-mistakes-made-by-beginner-pole-dancers            /apply  301
 /a-quick-warm-up-for-pole-dancers-of-all-levels           /apply  301
 
+# Short link for the New Year's Eve flyer QR code.
+# IMPORTANT: this is a 302, not a 301, on purpose. A 301 gets cached hard by
+# browsers, and we need to be able to re-point this if the Shift4 payment link
+# has to be recreated (expired links cannot be reactivated, and a link that
+# hits its payment cap auto-completes). Printed flyers point here forever;
+# only this line changes.
+# Currently parked on the events page until the Shift4 link exists.
+/nye      /events    302
+/nye/     /events    302
+
 # Normalize trailing-slash versions of current pages
 /club/       /club      301
 /dancers/    /dancers   301
