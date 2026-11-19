@@ -163,6 +163,19 @@ export const events = [
     image: '/images/events/thanksgiving-food-drive.jpg'
   },
   {
+    // Prepaid package. `ticketUrl` renders a Buy button on the event card and
+    // becomes the offer URL in the Event schema. Paste the Shift4 payment link
+    // here once it is created, and set a second link if you publish a
+    // two-guest option.
+    title: "New Year's Eve Package",
+    date: '2026-12-31',
+    price: 75,
+    ticketUrl: '',
+    ticketLabel: 'Buy Package - $75',
+    desc: "Ring in 2027 at Just Enuff Cabaret. $75 per person, reserved in advance. Thursday December 31st, doors at 4 PM, party until 2 AM. Packages are limited and sold in advance only. 21+, full bar, please drink responsibly.",
+    image: '/images/events/new-years-eve.jpg'
+  },
+  {
     title: '1980s Night',
     date: '2026-11-13',
     fbUrl: 'https://www.facebook.com/share/1C22ePhnEe/',

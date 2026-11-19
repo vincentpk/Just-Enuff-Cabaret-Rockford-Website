@@ -64,7 +64,9 @@ const eventSchemas = upcoming.map((e) => ({
           price: e.price,
           priceCurrency: 'USD',
           availability: 'https://schema.org/InStock',
-          url: new URL('/events', Astro.site).href,
+          // Point Google at the actual checkout when the event sells tickets
+          // in advance; otherwise the events page itself is the offer page.
+          url: e.ticketUrl || new URL('/events', Astro.site).href,
           validFrom: e.date
         }
       }
@@ -126,11 +128,21 @@ const eventSchemas = upcoming.map((e) => ({
                     {e.desc}
                   </p>
                 )}
-                {e.fbUrl && (
-                  <a href={e.fbUrl} target="_blank" rel="noopener"
-                    style="display:inline-block;margin-top:auto;padding-top:0.9rem;font-family:'Bebas Neue',sans-serif;letter-spacing:0.12em;font-size:0.95rem;color:var(--gold);">
-                    RSVP on Facebook &rarr;
-                  </a>
+                {(e.ticketUrl || e.fbUrl) && (
+                  <div style="margin-top:auto;padding-top:1rem;display:flex;flex-direction:column;align-items:center;gap:0.7rem;">
+                    {e.ticketUrl && (
+                      <a class="btn btn-red" href={e.ticketUrl} target="_blank" rel="noopener"
+                        style="width:100%;text-align:center;">
+                        {e.ticketLabel || 'Buy Tickets'}
+                      </a>
+                    )}
+                    {e.fbUrl && (
+                      <a href={e.fbUrl} target="_blank" rel="noopener"
+                        style="display:inline-block;font-family:'Bebas Neue',sans-serif;letter-spacing:0.12em;font-size:0.95rem;color:var(--gold);">
+                        RSVP on Facebook &rarr;
+                      </a>
+                    )}
+                  </div>
                 )}
               </div>
             </div>
