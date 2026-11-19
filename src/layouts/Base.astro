@@ -7,7 +7,12 @@ const {
   description,
   ogImage = '/images/og-image.jpg', // 1200x630 link-preview card (iMessage, Facebook, etc.)
   schema = null, // extra page-level JSON-LD (object or array)
-  noindex = false // keep utility pages (payment confirmation) out of search results
+  noindex = false, // keep utility pages (payment confirmation) out of search results
+  // Skip the 21+ interstitial. Only for pages reached from the Shift4 checkout:
+  // the terms a customer is being asked to accept, and the post-payment
+  // confirmation. Blocking either behind a modal is friction at the worst
+  // possible moment, and both pages state the 21+ requirement in their own text.
+  skipAgeGate = false
 } = Astro.props;
 
 // Normalize "/club.html" → "/club" and "/index" → "/" so canonicals match sitemap URLs
@@ -129,6 +134,7 @@ const socialIcons = {
   </head>
   <body>
     <!-- 21+ age gate -->
+    {!skipAgeGate && (
     <div class="age-gate gone" id="ageGate" aria-hidden="true">
       <img class="age-gate-logo" src="/images/logo.png" alt={`${business.name} logo`} width="220" height="189" />
       <div class="age-gate-title">Are You 21 or Older?</div>
@@ -142,6 +148,7 @@ const socialIcons = {
         entertainment establishment in {business.address.city}, {business.address.state}.
       </div>
     </div>
+    )}
 
     <nav aria-label="Main navigation">
       <a href="/" class="nav-brand" aria-label={`${business.name} home`}>
@@ -194,24 +201,28 @@ const socialIcons = {
 
     <script>
       // Age gate (remembered for 30 days)
+      // Pages rendered with skipAgeGate have no gate element at all, so
+      // everything below is guarded rather than assuming it exists.
       const gate = document.getElementById('ageGate');
       const KEY = 'jec_age_ok';
-      let ok = false;
-      try {
-        const saved = JSON.parse(localStorage.getItem(KEY) || 'null');
-        ok = saved && Date.now() - saved.t < 30 * 24 * 60 * 60 * 1000;
-      } catch {}
-      if (!ok) {
-        gate.classList.remove('gone');
-        gate.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden';
+      if (gate) {
+        let ok = false;
+        try {
+          const saved = JSON.parse(localStorage.getItem(KEY) || 'null');
+          ok = saved && Date.now() - saved.t < 30 * 24 * 60 * 60 * 1000;
+        } catch {}
+        if (!ok) {
+          gate.classList.remove('gone');
+          gate.setAttribute('aria-hidden', 'false');
+          document.body.style.overflow = 'hidden';
+        }
+        document.getElementById('ageYes').addEventListener('click', () => {
+          try { localStorage.setItem(KEY, JSON.stringify({ t: Date.now() })); } catch {}
+          gate.classList.add('gone');
+          gate.setAttribute('aria-hidden', 'true');
+          document.body.style.overflow = '';
+        });
       }
-      document.getElementById('ageYes').addEventListener('click', () => {
-        try { localStorage.setItem(KEY, JSON.stringify({ t: Date.now() })); } catch {}
-        gate.classList.add('gone');
-        gate.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = '';
-      });
 
       // Keep the copyright year current even without a redeploy
       const yearEl = document.getElementById('copyYear');
