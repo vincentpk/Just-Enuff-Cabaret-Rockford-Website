@@ -172,7 +172,7 @@ export const events = [
     price: 75,
     ticketUrl: '',
     ticketLabel: 'Buy Package - $75',
-    desc: "Ring in 2027 at Just Enuff Cabaret. $75 per person, reserved in advance. Thursday December 31st, doors at 4 PM, party until 2 AM. Packages are limited and sold in advance only. 21+, full bar, please drink responsibly.",
+    desc: "Ring in 2027 at Just Enuff Cabaret. The all-inclusive package gets you a steak dinner, a bottle of champagne, a VIP dance, your cover waived, and a Just Enuff t-shirt. $75 per person in advance or $100 at the door. Thursday December 31st, doors at 4 PM, party until 2 AM. Packages are limited, so book ahead. 21+, full bar, please drink responsibly.",
     image: '/images/events/new-years-eve.jpg'
   },
   {
