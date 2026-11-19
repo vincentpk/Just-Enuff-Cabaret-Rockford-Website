@@ -6,7 +6,8 @@ const {
   title,
   description,
   ogImage = '/images/og-image.jpg', // 1200x630 link-preview card (iMessage, Facebook, etc.)
-  schema = null // extra page-level JSON-LD (object or array)
+  schema = null, // extra page-level JSON-LD (object or array)
+  noindex = false // keep utility pages (payment confirmation) out of search results
 } = Astro.props;
 
 // Normalize "/club.html" → "/club" and "/index" → "/" so canonicals match sitemap URLs
@@ -89,6 +90,7 @@ const socialIcons = {
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex,nofollow" />}
     {cleanPath === '/' && <link rel="preload" as="image" href="/videos/hero-poster.jpg" />}
     <link rel="icon" href="/favicon.ico" sizes="48x48" />
     <link rel="icon" type="image/png" href="/images/favicon-96.png" sizes="96x96" />

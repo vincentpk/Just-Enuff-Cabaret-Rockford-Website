@@ -1,0 +1,85 @@
+---
+import Base from '../layouts/Base.astro';
+import { business } from '../data/site.js';
+
+// Shift4 Return URL target: where every payment link sends the customer after
+// a completed payment. The Shift4 branding setting is account-wide, so this
+// page has to read correctly for any advance purchase, not just one event.
+// noindex because it has no business appearing in search results.
+---
+
+<Base
+  title="Payment Confirmed | Just Enuff Cabaret, Rockford IL"
+  description="Your payment to Just Enuff Cabaret is complete. Check your email for a receipt and bring it with photo ID to redeem."
+  noindex={true}
+>
+  <div class="page-hero">
+    <span class="eyebrow">Payment Complete</span>
+    <h1 class="page-title">Thank <em>You</em></h1>
+    <div class="rule"></div>
+    <p class="lead">
+      Your payment went through. We're glad you're coming.
+    </p>
+  </div>
+
+  <section>
+    <div class="inner-sm">
+      <div class="card" style="padding:2.2rem 1.8rem;">
+        <h2 style="font-family:'Playfair Display',serif;color:var(--gold-light);font-size:1.4rem;margin-bottom:1.2rem;text-align:center;">
+          What Happens Next
+        </h2>
+
+        <div style="font-family:'Cormorant Garamond',serif;color:var(--grey);font-size:1.1rem;line-height:1.7;">
+          <p style="margin-bottom:1.1rem;">
+            <strong style="color:var(--cream);">1. Check your email.</strong> A receipt is on its
+            way to the address you entered at checkout. If you don't see it within a few minutes,
+            check your spam folder.
+          </p>
+          <p style="margin-bottom:1.1rem;">
+            <strong style="color:var(--cream);">2. Keep that receipt.</strong> It is your proof of
+            purchase. Save it on your phone or print it.
+          </p>
+          <p style="margin-bottom:1.1rem;">
+            <strong style="color:var(--cream);">3. Bring it with your ID.</strong> At the door,
+            show the receipt along with a valid government-issued photo ID matching the name on
+            it. Everyone entering must be 21 or older.
+          </p>
+          <p style="margin-bottom:0;">
+            <strong style="color:var(--cream);">Bought this for someone else?</strong> Call us at
+            <a href={business.phoneHref} style="color:var(--gold);">{business.phone}</a> before the
+            event so we can put the guest's name on the list.
+          </p>
+        </div>
+      </div>
+
+      <div class="card" style="padding:1.6rem 1.8rem;margin-top:1.4rem;text-align:center;">
+        <p style="font-family:'Cormorant Garamond',serif;color:var(--grey);font-size:1.05rem;line-height:1.6;margin:0;">
+          No receipt after 15 minutes, or something doesn't look right? Call
+          <a href={business.phoneHref} style="color:var(--gold);">{business.phone}</a> or email
+          <a href={`mailto:${business.email}`} style="color:var(--gold);"> {business.email}</a> and
+          we'll sort it out. Please reach out to us before contacting your bank, we can almost
+          always fix it faster.
+        </p>
+      </div>
+
+      <p style="text-align:center;margin-top:1.6rem;font-family:'Cormorant Garamond',serif;color:var(--grey);font-size:1rem;">
+        Full details are in our
+        <a href="/payment-terms" style="color:var(--gold);">payment &amp; ticket terms</a>.
+      </p>
+
+      <div class="hero-btns" style="margin-top:2rem;justify-content:center;">
+        <a class="btn btn-red" href="/events">See Upcoming Events</a>
+        <a class="btn btn-gold" href="/contact" style="margin-left:0.8rem;">Directions &amp; Hours</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="inner-sm">
+      <h2>Planning the Rest of the Night?</h2>
+      <p>{business.hours} · {business.address.street}, {business.address.city}, {business.address.state}</p>
+      <a class="btn btn-red" href="/vip">VIP Packages</a>
+      <a class="btn btn-gold" href="/menu" style="margin-left:0.8rem;">Bottle Service</a>
+    </div>
+  </section>
+</Base>
