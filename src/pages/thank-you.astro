@@ -83,4 +83,36 @@ import { business } from '../data/site.js';
       <a class="btn btn-gold" href="/menu" style="margin-left:0.8rem;">Bottle Service</a>
     </div>
   </section>
+
+  <script is:inline>
+    // Google Ads conversion signal for completed Shift4 payments.
+    //
+    // Shift4 returns here as:
+    //   /thank-you?status=success&checkout_session_id=chse_XXXX
+    // so we only fire on an actual success, not on anyone who wanders onto
+    // this page. The session id is passed as transaction_id so Google Ads
+    // de-duplicates if the customer refreshes or reopens the link, and we
+    // also guard with sessionStorage for the same reason.
+    //
+    // Trigger this in GTM on the Custom Event named "purchase".
+    (function () {
+      var params = new URLSearchParams(window.location.search);
+      if (params.get('status') !== 'success') return;
+
+      var txn = params.get('checkout_session_id') || '';
+      var guardKey = 'jec_conv_' + txn;
+      try {
+        if (txn && sessionStorage.getItem(guardKey)) return;
+        if (txn) sessionStorage.setItem(guardKey, '1');
+      } catch (e) {}
+
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: 'purchase',
+        transaction_id: txn,
+        currency: 'USD',
+        payment_provider: 'shift4'
+      });
+    })();
+  </script>
 </Base>
