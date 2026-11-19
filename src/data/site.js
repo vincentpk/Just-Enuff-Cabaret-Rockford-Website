@@ -170,7 +170,7 @@ export const events = [
     title: "New Year's Eve Package",
     date: '2026-12-31',
     price: 75,
-    ticketUrl: '',
+    ticketUrl: 'https://pay.shift4.com/link_H5AXnJO32lPrFeoFFyAtmVcV',
     ticketLabel: 'Buy Package - $75',
     desc: "Ring in 2027 at Just Enuff Cabaret. The all-inclusive package gets you a steak dinner, a bottle of champagne, a VIP dance, your cover waived, and a Just Enuff t-shirt. $75 per person in advance or $100 at the door. To redeem, bring the receipt emailed to you at checkout and a photo ID matching the name on it. Buying a package for someone else? Call us before December 31st and we will put the guest's name on the list. Thursday December 31st, doors at 4 PM, party until 2 AM. Packages are limited and non-refundable, so book ahead. 21+, full bar, please drink responsibly.",
     image: '/images/events/new-years-eve.jpg'

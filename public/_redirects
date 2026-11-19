@@ -52,9 +52,11 @@
 # has to be recreated (expired links cannot be reactivated, and a link that
 # hits its payment cap auto-completes). Printed flyers point here forever;
 # only this line changes.
-# Currently parked on the events page until the Shift4 link exists.
-/nye      /events    302
-/nye/     /events    302
+# Points at the Shift4 checkout for the NYE package. If that link ever has to
+# be recreated (expiry, or it hits its 50-charge cap and auto-completes),
+# change the URL on these two lines only. Printed flyers never change.
+/nye      https://pay.shift4.com/link_H5AXnJO32lPrFeoFFyAtmVcV    302
+/nye/     https://pay.shift4.com/link_H5AXnJO32lPrFeoFFyAtmVcV    302
 
 # Normalize trailing-slash versions of current pages
 /club/       /club      301
