@@ -1,0 +1,123 @@
+---
+import Base from '../layouts/Base.astro';
+import { business } from '../data/site.js';
+
+// Linked from the Shift4 payment link checkout page as the Terms & Conditions
+// URL. Shift4 branding settings are account-wide, so this page has to cover
+// every kind of advance purchase we take, not just one event.
+const updated = 'November 19, 2026';
+
+const h2 = "font-family:'Playfair Display',serif;color:var(--gold-light);font-size:1.4rem;margin:2rem 0 0.6rem;";
+---
+
+<Base
+  title="Payment & Ticket Terms | Just Enuff Cabaret, Rockford IL"
+  description="Terms for advance ticket, package, and event purchases from Just Enuff Cabaret in Rockford, IL. Redemption, refunds, age requirements, and entry conditions."
+>
+  <div class="page-hero">
+    <span class="eyebrow">Legal</span>
+    <h1 class="page-title">Payment &amp; Ticket <em>Terms</em></h1>
+    <div class="rule"></div>
+    <p class="lead">Last updated {updated}</p>
+  </div>
+
+  <section>
+    <div class="inner-sm" style="font-family:'Cormorant Garamond',serif;color:var(--grey);font-size:1.1rem;line-height:1.7;">
+      <p>
+        These terms apply when you buy a ticket, package, event admission, or other item
+        from {business.name} in advance, whether through a payment link, in person, or over
+        the phone. By completing a purchase you agree to these terms.
+      </p>
+
+      <h2 style={h2}>Age Requirement</h2>
+      <p>
+        You must be 21 or older to enter our venue or to redeem any purchase. Entry requires a
+        valid, unexpired government-issued photo ID. There are no exceptions, and purchasing in
+        advance does not waive this requirement. If you cannot present valid ID, you will not be
+        admitted and your purchase will not be refunded.
+      </p>
+
+      <h2 style={h2}>How to Redeem an Advance Purchase</h2>
+      <p>
+        When your payment is complete you will receive a receipt by email. To redeem, bring that
+        receipt with you, on your phone or printed, along with a photo ID matching the name on
+        the receipt. We check each purchase against our records at the door.
+      </p>
+      <p>
+        Each purchase admits one guest unless the item description says otherwise. A receipt may
+        be redeemed one time only. If you bought a package for someone else, call us at
+        <a href={business.phoneHref} style="color:var(--gold);"> {business.phone}</a> before the
+        event date so we can note the guest's name, otherwise we may not be able to honor it at
+        the door.
+      </p>
+
+      <h2 style={h2}>Refunds &amp; Cancellations</h2>
+      <p>
+        <strong style="color:var(--cream);">Advance purchases are final and non-refundable.</strong>
+        This includes situations where you change your mind, do not attend, arrive after the
+        event has ended, or are unable to present the required receipt or ID.
+      </p>
+      <p>
+        If we cancel an event outright, we will refund the amount you paid to the original payment
+        method. If we reschedule an event, your purchase will be honored on the new date, and you
+        may request a refund instead by contacting us before that new date.
+      </p>
+
+      <h2 style={h2}>Availability &amp; Changes</h2>
+      <p>
+        Advance purchases are limited in number and are sold on a first-come basis. Once an
+        allotment sells out, the payment link closes. We may change the lineup, menu items,
+        entertainers, timing, or specific components of an event where circumstances require it.
+        We will make reasonable efforts to provide a substitute of comparable value, and such
+        changes are not grounds for a refund.
+      </p>
+      <p>
+        Prices shown at checkout are in US dollars and do not include gratuity. Advance pricing
+        applies only until the cutoff time stated at checkout. After that time, standard pricing
+        at the door applies.
+      </p>
+
+      <h2 style={h2}>Entry &amp; Conduct</h2>
+      <p>
+        We reserve the right to refuse entry or to remove any guest, consistent with applicable
+        law, including for intoxication, disorderly or threatening behavior, harassment of our
+        entertainers or staff, or violation of our house rules. If you are refused entry or
+        removed for any of these reasons, your purchase will not be refunded.
+      </p>
+      <p>
+        Entry may also be subject to capacity limits set by law or by local authorities. If
+        capacity prevents us from admitting you despite a valid advance purchase, we will refund
+        you in full.
+      </p>
+
+      <h2 style={h2}>Payment Processing</h2>
+      <p>
+        Card payments are processed by our payment provider. We do not receive or store your full
+        card number. The name, billing address, and email address you enter at checkout are used
+        to process the payment, to send your receipt, and to verify your purchase at the door.
+        See our <a href="/privacy-policy" style="color:var(--gold);">Privacy Policy</a> for how we
+        handle that information.
+      </p>
+      <p>
+        Your card statement will show a charge from {business.name} or our payment provider. If
+        you believe a charge is incorrect, please contact us first at
+        <a href={`mailto:${business.email}`} style="color:var(--gold);"> {business.email}</a> or
+        <a href={business.phoneHref} style="color:var(--gold);"> {business.phone}</a>. We will
+        review it promptly, and most issues are resolved faster this way than through your bank.
+      </p>
+
+      <h2 style={h2}>Contact</h2>
+      <p>
+        {business.name}<br />
+        {business.address.street}, {business.address.city}, {business.address.state} {business.address.zip}<br />
+        <a href={business.phoneHref} style="color:var(--gold);">{business.phone}</a> ·
+        <a href={`mailto:${business.email}`} style="color:var(--gold);"> {business.email}</a>
+      </p>
+
+      <p style="margin-top:2rem;font-size:0.95rem;color:var(--grey);">
+        These terms are governed by the laws of the State of Illinois. This page is provided for
+        general informational purposes and is not legal advice.
+      </p>
+    </div>
+  </section>
+</Base>
